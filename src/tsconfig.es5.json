@@ -23,8 +23,8 @@
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
-    "flatModuleOutFile": "angular-polaris-test.js",
-    "flatModuleId": "angular-polaris-test"
+    "flatModuleOutFile": "angular-polaris.js",
+    "flatModuleId": "angular-polaris"
   },
   "files": [
     "./index.ts"
