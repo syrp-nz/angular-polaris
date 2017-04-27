@@ -4,6 +4,7 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "experimentalDecorators": true,
+    "compileOnSave": false,
     "moduleResolution": "node",
     "rootDir": "./src",
     "lib": [
