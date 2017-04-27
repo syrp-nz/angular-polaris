@@ -5,7 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
  */
 @Component({
     selector: 'plrsSection',
-    templateUrl: 'section.component.html',
+    template: `<ng-content></ng-content>`,
     host: {
         '[class.Polaris-Layout__Section]': 'true',
         '[class.Polaris-Layout__Section--secondary]': 'secondary'

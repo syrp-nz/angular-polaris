@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutComponent } from './layout/layout.component';
+import { LayoutComponent, SectionedLayoutComponent } from './layout/layout.component';
 import { SectionComponent } from './layout/section.component';
 
 @NgModule({
@@ -9,11 +9,13 @@ import { SectionComponent } from './layout/section.component';
     ],
     declarations: [
         LayoutComponent,
+        SectionedLayoutComponent,
         SectionComponent,
     ],
     exports: [
         LayoutComponent,
         SectionComponent,
+        SectionedLayoutComponent
     ]
 })
 export class AngularPolarisModule {
