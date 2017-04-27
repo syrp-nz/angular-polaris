@@ -1,6 +1,6 @@
 {
-  "name": "angular-polaris-test",
-  "version": "0.1.0",
+  "name": "angular-polaris",
+  "version": "0.0.0",
   "scripts": {
     "build": "gulp build",
     "build:watch": "gulp",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "/var/www/angular-polaris-test"
+    "url": "git@github.com:syrp-nz/angular-polaris.git"
   },
   "author": {
     "name": "Maxime Rainville",
@@ -20,7 +20,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "/var/www/angular-polaris-test/issues"
+    "url": "https://github.com/syrp-nz/angular-polaris/issues"
   },
   "devDependencies": {
     "@angular/common": "^4.0.0",

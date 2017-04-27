@@ -1,11 +1,15 @@
-# angular-polaris-test
+# angular-polaris
+
+This package aimed to port functionality from the Shopify Polaris design system from React to Angular.
+
+*Under Development - Use at your own risk*
 
 ## Installation
 
 To install this library, run:
 
 ```bash
-$ npm install angular-polaris-test --save
+$ npm install angular-polaris --save
 ```
 
 ## Consuming your library
