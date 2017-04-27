@@ -1,0 +1,5 @@
+<plrsSection *ngIf="sectioned; else elseTpl">
+    <ng-container *ngTemplateOutlet="elseTpl"></ng-container>
+</plrsSection>
+
+<template #elseTpl><ng-content></ng-content></template>
