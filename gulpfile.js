@@ -71,7 +71,8 @@ gulp.task('rollup', function () {
         '@angular/core',
         '@angular/common'
       ],
-      format: 'es'
+      format: 'es',
+      allowRealFiles: true
     }))
     .pipe(gulp.dest(distFolder));
 });
