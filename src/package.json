@@ -1,0 +1,26 @@
+{
+  "name": "angular-polaris-test",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "/var/www/angular-polaris-test"
+  },
+  "author": {
+    "name": "Maxime Rainville",
+    "email": "maxime@syrp.co.nz"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "/var/www/angular-polaris-test/issues"
+  },
+  "module": "angular-polaris-test.js",
+  "typings": "angular-polaris-test.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
