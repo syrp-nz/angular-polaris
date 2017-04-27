@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
     template: `<ng-content></ng-content>`,
     host: {
         '[class.Polaris-Layout__Section]': 'true',
-        '[class.Polaris-Layout__Section--secondary]': 'secondary'
+        '[class.Polaris-Layout__Section--secondary]': 'secondary !== false'
     }
 })
 export class SectionComponent implements OnInit {
@@ -16,8 +16,8 @@ export class SectionComponent implements OnInit {
     /**
      * Whatever this section is secondary
      */
-    @Input() secondary: boolean = false;
+    @Input('secondary') secondary: boolean = false;
 
-    ngOnInit() {}
+    ngOnInit() {  }
 
 }
