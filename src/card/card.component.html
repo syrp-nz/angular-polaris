@@ -1,0 +1,18 @@
+<div class="Polaris-Card__Header" *ngIf="title != ''">
+   <h2 class="Polaris-Heading">{{ title }}</h2>
+ </div>
+
+<plrsCardSection *ngIf="(sectioned !== false) else elseTpl">
+   <ng-container *ngTemplateOutlet="elseTpl"></ng-container>
+</plrsCardSection>
+
+<div class="Polaris-Card__Footer" *ngIf="primaryFooterAction">
+    <div class="Polaris-ButtonGroup">
+        <div class="Polaris-ButtonGroup__Item">
+            <plrsButton [fromAction]="primaryFooterAction" primary></plrsButton>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #elseTpl><ng-content></ng-content></ng-template>

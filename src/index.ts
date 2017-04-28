@@ -1,21 +1,38 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
+
+import { ButtonComponent } from './button/button.component';
+
+import { CardComponent } from './card/card.component';
+import { CardSectionComponent } from './card/card.section.component';
+
 import { LayoutComponent, SectionedLayoutComponent } from './layout/layout.component';
 import { SectionComponent } from './layout/section.component';
 
+export * from './types';
+
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+        RouterModule,
     ],
     declarations: [
+        ButtonComponent,
+        CardComponent,
+        CardSectionComponent,
         LayoutComponent,
-        SectionedLayoutComponent,
         SectionComponent,
+        SectionedLayoutComponent,
     ],
     exports: [
+        ButtonComponent,
+        CardComponent,
+        CardSectionComponent,
         LayoutComponent,
         SectionComponent,
-        SectionedLayoutComponent
+        SectionedLayoutComponent,
     ]
 })
 export class AngularPolarisModule {

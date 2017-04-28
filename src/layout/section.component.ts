@@ -9,7 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
     host: {
         '[class.Polaris-Layout__Section]': 'true',
         '[class.Polaris-Layout__Section--secondary]': 'secondary !== false'
-    }
+    },
+    styles: [':host {display: block;}']
 })
 export class SectionComponent implements OnInit {
 

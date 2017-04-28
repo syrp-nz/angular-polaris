@@ -1,0 +1,27 @@
+<a *ngIf="url"
+    class="Polaris-Button"
+    [href]="routerLinkActive === false ? url : false"
+    [routerLink]="routerLinkActive !== false ? url : false"
+    [routerLinkActive]="routerLinkActive !== false ? 'active' : false"
+    data-polaris-unstyled="true"
+    [attr.aria-label]="accessibilityLabel"
+    [ngClass]="ngClass()"
+    [attr.disabled]="disabled !== false">
+    <span class="Polaris-Button__Content">
+        <span>
+            <ng-container *ngIf="children else elseTpl">
+                {{ children }}
+            </ng-container>
+        </span>
+    </span>
+</a>
+<button type="button" class="Polaris-Button" *ngIf="!url" (click)="onAction()" [ngClass]="ngClass()" [disabled]="disabled !== false">
+    <span class="Polaris-Button__Content">
+        <span>
+            <ng-container *ngIf="children else elseTpl">
+                {{ children }}
+            </ng-container>
+        </span>
+    </span>
+</button>
+<ng-template #elseTpl><ng-content></ng-content></ng-template>
