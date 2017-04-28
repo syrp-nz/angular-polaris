@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 
 import { ButtonComponent } from './button/button.component';
+import { ButtonGroupComponent } from './button/button.group.component';
 
 import { CardComponent } from './card/card.component';
 import { CardSectionComponent } from './card/card.section.component';
@@ -20,6 +21,7 @@ export * from './types';
     ],
     declarations: [
         ButtonComponent,
+        ButtonGroupComponent,
         CardComponent,
         CardSectionComponent,
         LayoutComponent,
@@ -28,6 +30,7 @@ export * from './types';
     ],
     exports: [
         ButtonComponent,
+        ButtonGroupComponent,
         CardComponent,
         CardSectionComponent,
         LayoutComponent,

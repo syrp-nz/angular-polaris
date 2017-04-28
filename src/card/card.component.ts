@@ -36,8 +36,6 @@ export class CardComponent implements OnInit {
      */
     @Input() primaryFooterAction: Action;
 
-    ngOnInit() {
-        console.dir(this.primaryFooterAction);
-    }
+    ngOnInit() { }
 
 }

@@ -8,13 +8,14 @@ import { AngularComplexAction } from '../types';
     selector: 'plrsButton',
     templateUrl: 'button.component.html',
     host: {
-
+        '[class.Polaris-ButtonGroup__Item]': 'inGroup'
     },
     styles: [':host {display: inline-block;}']
 })
 export class ButtonComponent implements OnInit {
 
     ngOnInit() { }
+
 
     @Input() set fromAction(action:AngularComplexAction) {
         this.children = action.content;
@@ -62,8 +63,9 @@ export class ButtonComponent implements OnInit {
     @Input() routerLinkActive: boolean = false;
 
 
-
     @Output() click: EventEmitter<any> = new EventEmitter();
+
+    @Input() inGroup: boolean = false;
 
     ngClass() {
         return {
@@ -72,5 +74,7 @@ export class ButtonComponent implements OnInit {
             'Polaris-Button--disabled': this.disabled !== false,
         }
     }
+
+
 
 }
