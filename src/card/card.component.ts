@@ -36,6 +36,16 @@ export class CardComponent implements OnInit {
      */
     @Input() primaryFooterAction: Action;
 
+    /**
+     * Secondary action in the card footer.
+     */
+    @Input() secondaryFooterAction: Action;
+
+    /**
+     * Card header actions.
+     */
+    @Input() actions: Action[];
+
     ngOnInit() { }
 
 }

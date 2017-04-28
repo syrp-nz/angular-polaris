@@ -1,5 +1,14 @@
 <div class="Polaris-Card__Header" *ngIf="title != ''">
-   <h2 class="Polaris-Heading">{{ title }}</h2>
+    <plrsStack alignment='baseline'>
+        <plrsStackItem fill>
+            <h2 class="Polaris-Heading">{{ title }}</h2>
+        </plrsStackItem>
+        <plrsStackItem *ngIf="actions">
+            <plrsButtonGroup *ngFor="let action of actions">
+                <plrsButton [fromAction]="action"></plrsButton>
+            </plrsButtonGroup>
+        </plrsStackItem>
+    </plrsStack>
  </div>
 
 <plrsCardSection *ngIf="(sectioned !== false) else elseTpl">
@@ -7,11 +16,10 @@
 </plrsCardSection>
 
 <div class="Polaris-Card__Footer" *ngIf="primaryFooterAction">
-    <div class="Polaris-ButtonGroup">
-        <div class="Polaris-ButtonGroup__Item">
-            <plrsButton [fromAction]="primaryFooterAction" primary></plrsButton>
-        </div>
-    </div>
+    <plrsButtonGroup>
+        <plrsButton [fromAction]="primaryFooterAction" primary></plrsButton>
+        <plrsButton [fromAction]="secondaryFooterAction" *ngIf="secondaryFooterAction"></plrsButton>
+    </plrsButtonGroup>
 </div>
 
 

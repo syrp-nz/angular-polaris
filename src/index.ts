@@ -12,6 +12,9 @@ import { CardSectionComponent } from './card/card.section.component';
 import { LayoutComponent, SectionedLayoutComponent } from './layout/layout.component';
 import { SectionComponent } from './layout/section.component';
 
+import { StackComponent } from './stack/stack.component';
+import { StackItemComponent } from './stack/stack.item.component';
+
 export * from './types';
 
 @NgModule({
@@ -27,6 +30,8 @@ export * from './types';
         LayoutComponent,
         SectionComponent,
         SectionedLayoutComponent,
+        StackComponent,
+        StackItemComponent,
     ],
     exports: [
         ButtonComponent,
@@ -36,6 +41,8 @@ export * from './types';
         LayoutComponent,
         SectionComponent,
         SectionedLayoutComponent,
+        StackComponent,
+        StackItemComponent,
     ]
 })
 export class AngularPolarisModule {
