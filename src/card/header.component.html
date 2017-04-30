@@ -1,0 +1,14 @@
+<ng-container *ngIf="actions else elseTpl">
+    <plrsStack alignment='baseline'>
+        <plrsStackItem fill>
+            <ng-container *ngTemplateOutlet="elseTpl"></ng-container>
+        </plrsStackItem>
+        <plrsStackItem *ngIf="actions">
+            <plrsButtonGroup *ngFor="let action of actions">
+                <plrsButton [fromAction]="action" plain></plrsButton>
+            </plrsButtonGroup>
+        </plrsStackItem>
+    </plrsStack>
+</ng-container>
+
+<ng-template #elseTpl><h2 class="Polaris-Heading"><ng-content></ng-content></h2></ng-template>

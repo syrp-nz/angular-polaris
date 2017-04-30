@@ -7,6 +7,7 @@ import { ButtonComponent } from './button/button.component';
 import { ButtonGroupComponent } from './button/button.group.component';
 
 import { CardComponent } from './card/card.component';
+import { HeaderComponent } from './card/header.component';
 import { CardSectionComponent } from './card/card.section.component';
 
 import { LayoutComponent, SectionedLayoutComponent } from './layout/layout.component';
@@ -32,6 +33,7 @@ export * from './types';
         SectionedLayoutComponent,
         StackComponent,
         StackItemComponent,
+        HeaderComponent,
     ],
     exports: [
         ButtonComponent,
@@ -43,6 +45,7 @@ export * from './types';
         SectionedLayoutComponent,
         StackComponent,
         StackItemComponent,
+        HeaderComponent,
     ]
 })
 export class AngularPolarisModule {

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Action } from '@shopify/polaris';
+import { AngularComplexAction } from '../types';
 
 /**
  * Component to display a Shopify layout
@@ -20,7 +20,6 @@ export class CardComponent implements OnInit {
      */
     @Input() title: string = '';
 
-
     /**
      * A less prominent card.
      */
@@ -34,17 +33,17 @@ export class CardComponent implements OnInit {
     /**
      * Primary action in the card footer.
      */
-    @Input() primaryFooterAction: Action;
+    @Input() primaryFooterAction: AngularComplexAction;
 
     /**
      * Secondary action in the card footer.
      */
-    @Input() secondaryFooterAction: Action;
+    @Input() secondaryFooterAction: AngularComplexAction;
 
     /**
      * Card header actions.
      */
-    @Input() actions: Action[];
+    @Input() actions: AngularComplexAction[];
 
     ngOnInit() { }
 

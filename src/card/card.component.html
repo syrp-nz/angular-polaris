@@ -1,15 +1,4 @@
-<div class="Polaris-Card__Header" *ngIf="title != ''">
-    <plrsStack alignment='baseline'>
-        <plrsStackItem fill>
-            <h2 class="Polaris-Heading">{{ title }}</h2>
-        </plrsStackItem>
-        <plrsStackItem *ngIf="actions">
-            <plrsButtonGroup *ngFor="let action of actions">
-                <plrsButton [fromAction]="action"></plrsButton>
-            </plrsButtonGroup>
-        </plrsStackItem>
-    </plrsStack>
- </div>
+<plrsHeader *ngIf="title != ''" [actions]="actions">{{ title }}</plrsHeader>
 
 <plrsCardSection *ngIf="(sectioned !== false) else elseTpl">
    <ng-container *ngTemplateOutlet="elseTpl"></ng-container>
