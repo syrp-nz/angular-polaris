@@ -8,7 +8,7 @@ import { AngularComplexAction } from '../types';
     selector: 'plrsButton',
     templateUrl: 'button.component.html',
     host: {
-        '[class.Polaris-ButtonGroup__Item]': 'inGroup'
+        '[class.Polaris-ButtonGroup__Item]': 'inGroup',
     },
     styles: [':host {display: inline-block;}']
 })
@@ -23,6 +23,7 @@ export class ButtonComponent implements OnInit {
         this.url = action.url;
         this.onAction = action.onAction;
         this.routerLinkActive = action.routerLinkActive ? true : false;
+        this.plain = action.plain ? true : false;
     }
 
     /**
@@ -58,6 +59,11 @@ export class ButtonComponent implements OnInit {
     @Input() disabled: boolean = false;
 
     /**
+     * Display as disabled button.
+     */
+    @Input() plain: boolean = false;
+
+    /**
      * Hack as an Angular router link.
      */
     @Input() routerLinkActive: boolean = false;
@@ -72,6 +78,7 @@ export class ButtonComponent implements OnInit {
             'Polaris-Button--primary': this.primary !== false,
             'Polaris-Button--destructive': this.destructive !== false,
             'Polaris-Button--disabled': this.disabled !== false,
+            'Polaris-Button--plain': this.plain !== false,
         }
     }
 
