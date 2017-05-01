@@ -1,0 +1,19 @@
+<div class="Polaris-ResourceList__Item Polaris-ResourceList__Item--link" [ngClass]="ngClass()">
+    <a
+        aria-describedby=""
+        class="Polaris-ResourceList__Link"
+        data-polaris-unstyled="true"
+        [href]="routerLinkActive === false ? url : false"
+        [routerLink]="routerLinkActive !== false ? url : false"
+        [routerLinkActive]="routerLinkActive !== false ? 'active' : false"></a>
+    <div class="Polaris-ResourceList__Container">
+        <div class="Polaris-ResourceList__Content">
+            <div class="Polaris-ResourceList__Attributes">
+                <p class="Polaris-ResourceList__AttributeOne">{{ attributeOne }}</p>
+                <div class="Polaris-ResourceList__AttributeTwo">{{ attributeTwo }}</div>
+                <!--div class="Polaris-ResourceList__Badge"><span class="Polaris-Badge">Hidden</span></div-->
+                <div class="Polaris-ResourceList__AttributeThree">{{ attributeThree }}</div>
+            </div>
+        </div>
+    </div>
+</div>
