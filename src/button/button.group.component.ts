@@ -18,9 +18,7 @@ export class ButtonGroupComponent implements OnInit, AfterContentInit {
     ngOnInit() { }
 
     ngAfterContentInit() {
-        console.log('setting the in Group flag ' + this.buttons.length);
         this.buttons.toArray().forEach((button: ButtonComponent) => {
-            console.log('setting the in Group flag');
             button.inGroup = true;
         });
     }
