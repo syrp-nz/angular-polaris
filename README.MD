@@ -3,7 +3,7 @@
 This package aimed to port functionality from the Shopify Polaris design system from React to Angular. It tries to follow the same convention as the original Shopify Polaris package as much as possible.
 
 NB: The Angular Polaris component are prefix with `plrs`. e.g.
-```
+```html
 <plrsLayout>
     <plrsSection>
         <plrsCard title="Syrp App Configuration" sectioned [actions]="[{'content': 'Manage Configuration', 'url': '/config', 'routerLinkActive': true}]">
@@ -22,7 +22,7 @@ The package is under active development, so beware. Polaris components are conve
 | Button        	| Beta                 	|               	|
 | Card          	| Beta                 	|               	|
 | Layout        	| Beta                 	|               	|
-| Resource List 	| Partial              	|               	|
+| Resource List 	| Dev                  	|               	|
 | Stack         	| Beta                 	|               	|
 
 ## Installation
@@ -59,9 +59,10 @@ import { AngularPolarisModule } from 'angular-polaris';
 export class AppModule { }
 ```
 
-The package doesn't ship with Polaris css, so you need to manually include it in your project from the Shopify CDN.
-
-e.g.: `<link href="https://sdks.shopifycdn.com/polaris/1.0.2/polaris.min.css" rel="stylesheet">`
+The package doesn't ship with Polaris css, so you need to manually include it in your project from the Shopify CDN. e.g.:
+```html
+<link href="https://sdks.shopifycdn.com/polaris/1.0.2/polaris.min.css" rel="stylesheet">
+```
 
 ## Development
 
