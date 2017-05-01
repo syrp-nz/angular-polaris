@@ -1,0 +1,6 @@
+<label [id]="labelID" [for]="id" class="Polaris-Label__Text">
+    <ng-container *ngIf="children else elseTpl">
+        {{ children }}
+    </ng-container>
+</label>
+<ng-template #elseTpl><ng-content></ng-content></ng-template>

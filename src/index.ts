@@ -1,6 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 import { ButtonComponent } from './button/button.component';
@@ -9,6 +10,9 @@ import { ButtonGroupComponent } from './button/button.group.component';
 import { CardComponent } from './card/card.component';
 import { CardSectionComponent } from './card/card.section.component';
 import { HeaderComponent } from './card/header.component';
+
+import { LabelComponent } from './label/label.component';
+import { LabelledComponent } from './labelled/labelled.component';
 
 import { LayoutComponent, SectionedLayoutComponent } from './layout/layout.component';
 import { SectionComponent } from './layout/section.component';
@@ -19,12 +23,16 @@ import { ResourceListItemComponent } from './resource.list/resource.list.item.co
 import { StackComponent } from './stack/stack.component';
 import { StackItemComponent } from './stack/stack.item.component';
 
+import { TextFieldComponent } from './text.field/text.field.component';
+
+
 export * from './types';
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule,
+        FormsModule,
     ],
     declarations: [
         ButtonComponent,
@@ -38,7 +46,10 @@ export * from './types';
         StackItemComponent,
         HeaderComponent,
         ResourceListComponent,
-        ResourceListItemComponent
+        ResourceListItemComponent,
+        LabelComponent,
+        LabelledComponent,
+        TextFieldComponent,
     ],
     exports: [
         ButtonComponent,
@@ -52,7 +63,10 @@ export * from './types';
         StackItemComponent,
         HeaderComponent,
         ResourceListComponent,
-        ResourceListItemComponent
+        ResourceListItemComponent,
+        LabelComponent,
+        LabelledComponent,
+        TextFieldComponent,
     ]
 })
 export class AngularPolarisModule {
