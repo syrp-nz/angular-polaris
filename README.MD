@@ -1,8 +1,29 @@
 # angular-polaris
 
-This package aimed to port functionality from the Shopify Polaris design system from React to Angular.
+This package aimed to port functionality from the Shopify Polaris design system from React to Angular. It tries to follow the same convention as the original Shopify Polaris package as much as possible.
 
-*Under Development - Use at your own risk*
+NB: The Angular Polaris component are prefix with `plrs`. e.g.
+```
+<plrsLayout>
+    <plrsSection>
+        <plrsCard title="Syrp App Configuration" sectioned [actions]="[{'content': 'Manage Configuration', 'url': '/config', 'routerLinkActive': true}]">
+            <p>Manage configuration.</p>
+        </plrsCard>
+    </plrsSection>
+</plrsLayout>
+```
+
+## Under Development - Use at your own risk
+
+The package is under active development, so beware. Polaris components are converted as needed.
+
+| Component     	| Implementation state 	| Extra details 	|
+|---------------	|----------------------	|---------------	|
+| Button        	| Beta                 	|               	|
+| Card          	| Beta                 	|               	|
+| Layout        	| Beta                 	|               	|
+| Resource List 	| Partial              	|               	|
+| Stack         	| Beta                 	|               	|
 
 ## Installation
 
@@ -12,15 +33,8 @@ To install this library, run:
 $ npm install angular-polaris --save
 ```
 
-## Consuming your library
-
-Once you have published your library to npm, you can import your library in any Angular application by running:
-
-```bash
-$ npm install angular-polaris-test
-```
-
-and then from your Angular `AppModule`:
+## Consuming the library
+To use AngularPolaris in your Angular project, import `AngularPolarisModule` in your `AppModule`:
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,7 +43,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Import your library
-import { SampleModule } from 'angular-polaris-test';
+import { AngularPolarisModule } from 'angular-polaris';
 
 @NgModule({
   declarations: [
@@ -37,9 +51,7 @@ import { SampleModule } from 'angular-polaris-test';
   ],
   imports: [
     BrowserModule,
-
-    // Specify your library as an import
-    LibraryModule
+    AngularPolarisModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -47,15 +59,9 @@ import { SampleModule } from 'angular-polaris-test';
 export class AppModule { }
 ```
 
-Once your library is imported, you can use its components, directives and pipes in your Angular application:
+The package doesn't ship with Polaris css, so you need to manually include it in your project from the Shopify CDN.
 
-```xml
-<!-- You can now use your library component in app.component.html -->
-<h1>
-  {{title}}
-</h1>
-<sampleComponent></sampleComponent>
-```
+e.g.: `<link href="https://sdks.shopifycdn.com/polaris/1.0.2/polaris.min.css" rel="stylesheet">`
 
 ## Development
 
