@@ -1,16 +1,10 @@
-import { Component, Input, Output, OnInit, EventEmitter, forwardRef, Renderer } from '@angular/core';
-import { NgModel, DefaultValueAccessor, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, Input, Output, OnInit, EventEmitter, forwardRef, Optional, Inject, TemplateRef } from '@angular/core';
+import { NgModel, DefaultValueAccessor, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, NG_ASYNC_VALIDATORS } from '@angular/forms';
 import { AngularComplexAction } from '../types';
 import { createUniqueIDFactory } from '@shopify/javascript-utilities/other';
-
+import { ElementBase} from '../form/element.base';
 
 const getUniqueID = createUniqueIDFactory('TextField');
-
-const DEFAULT_VALUE_ACCESSOR: any = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => DefaultValueAccessor),
-  multi: true
-};
 
 /**
  * Component to display a Shopify layout
@@ -18,17 +12,39 @@ const DEFAULT_VALUE_ACCESSOR: any = {
 @Component({
     selector: 'plrsTextField',
     templateUrl: 'text.field.component.html',
-    providers: [DEFAULT_VALUE_ACCESSOR]
+    providers: [
+        {provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => TextFieldComponent), multi: true}
+    ],
 })
-export class TextFieldComponent /*extends DefaultValueAccessor*/ implements OnInit {
+export class TextFieldComponent extends ElementBase<string>  implements OnInit {
 
-    ngOnInit() { }
+    ngOnInit() {
+        console.dir(this.helpText);
+    }
 
+    constructor(
+        @Optional() @Inject(NG_VALIDATORS) validators: Array<any>,
+        @Optional() @Inject(NG_ASYNC_VALIDATORS) asyncValidators: Array<any>,
+    ) {
+        super(validators, asyncValidators);
+    }
 
     @Input() prefix: string;
     @Input() suffix: string;
-    @Input() placeholder: string;
+
+    /**
+     * Hint text to display
+     */
+    @Input() placeholder: string|TemplateRef<any> = "";
+
+    /**
+     * 	Initial value for the input
+     */
     @Input() value: string;
+
+    /**
+     * Additional hint text to display.
+     */
     @Input() helpText: string;
     @Input() label: string;
     @Input() labelAction: AngularComplexAction;
@@ -57,4 +73,5 @@ export class TextFieldComponent /*extends DefaultValueAccessor*/ implements OnIn
 
 
     @Input() model: NgModel;
+
 }

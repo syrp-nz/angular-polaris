@@ -25,6 +25,7 @@ import { StackItemComponent } from './stack/stack.item.component';
 
 import { TextFieldComponent } from './text.field/text.field.component';
 
+import { TemplateOrStringComponent } from './utilities/template.or.string.component';
 
 export * from './types';
 
@@ -50,6 +51,7 @@ export * from './types';
         LabelComponent,
         LabelledComponent,
         TextFieldComponent,
+        TemplateOrStringComponent,
     ],
     exports: [
         ButtonComponent,
@@ -67,6 +69,7 @@ export * from './types';
         LabelComponent,
         LabelledComponent,
         TextFieldComponent,
+        TemplateOrStringComponent,
     ]
 })
 export class AngularPolarisModule {

@@ -2,3 +2,9 @@
     <plrsLabel [id]="id">{{ label }}</plrsLabel>
 </div>
 <ng-content></ng-content>
+
+<ng-container *ngIf="helpText">
+    <div class="Polaris-Labelled__HelpText" id="{id}helpText">
+        <plrsTempalteOrString [value]="helpText"></plrsTempalteOrString>
+    </div>
+</ng-container>
