@@ -1,5 +1,10 @@
 <plrsLabelled [label]="label" [id]="id" [helpText]="helpText">
     <div class="Polaris-TextField">
+        <ng-container *ngIf="prefix">
+            <div class="Polaris-TextField__Prefix" id="{{ id }}Prefix">
+                <plrsTempalteOrString [value]="prefix" display="inline"></plrsTempalteOrString>
+            </div>
+        </ng-container>
         <input
             [id]="id"
             [name]="name"

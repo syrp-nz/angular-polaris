@@ -29,7 +29,7 @@ export class TextFieldComponent extends ElementBase<string>  implements OnInit {
         super(validators, asyncValidators);
     }
 
-    @Input() prefix: string;
+    @Input() prefix: string|TemplateRef<any> = "";
     @Input() suffix: string;
 
     /**
