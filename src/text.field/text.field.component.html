@@ -8,6 +8,7 @@
             aria-invalid="false"
             [(ngModel)]="value"
             [placeholder]="placeholder"
+            (keyup)="triggerKeyUp($event)"
              />
         <div class="Polaris-TextField__Backdrop"></div>
     </div>

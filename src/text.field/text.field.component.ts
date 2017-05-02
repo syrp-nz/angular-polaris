@@ -74,4 +74,10 @@ export class TextFieldComponent extends ElementBase<string>  implements OnInit {
 
     @Input() model: NgModel;
 
+
+    @Output() keyup = new EventEmitter<KeyboardEvent>();
+
+    triggerKeyUp(event: KeyboardEvent) {
+        this.keyup.emit(event);
+    }
 }
