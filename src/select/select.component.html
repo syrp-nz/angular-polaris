@@ -9,7 +9,6 @@
             attr.aria-labelledby="{{ id }}Label"
             aria-invalid="false"
             [(ngModel)]="value"
-            (keyup)="triggerKeyUp($event)"
             [required]="required !== false"
             [disabled]="disabled !== false">
             <option *ngIf="placeholder" [label]="placeholder" value="__placeholder__" disabled="" hidden=""></option>
