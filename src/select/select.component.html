@@ -1,0 +1,26 @@
+<plrsLabelled [label]="label" [id]="id" [helpText]="helpText" [error]="model.dirty && (invalid | async) && (failures | async)">
+    <div class="Polaris-Select Polaris-Select--placeholder"
+        [class.Polaris-Select--placeholder]="placeholder"
+        [class.Polaris-Select--error]="model.dirty && (invalid | async)">
+        <select
+            [id]="id"
+            [name]="name"
+            class="Polaris-Select__Input"
+            attr.aria-labelledby="{{ id }}Label"
+            aria-invalid="false"
+            [(ngModel)]="value"
+            (keyup)="triggerKeyUp($event)"
+            [required]="required !== false"
+            [disabled]="disabled !== false">
+            <option *ngIf="placeholder" [label]="placeholder" value="__placeholder__" disabled="" hidden=""></option>
+            <option *ngFor="let option of options"
+                [attr.key]="option.value ? option.value : option"
+                [value]="option.value ? option.value : option">
+                {{ option.label ? option.label : option }}
+            </option>
+        </select>
+        <div class="Polaris-Select__Icon"><span class="Polaris-Icon"><svg class="Polaris-Icon__Svg" viewBox="0 0 20 20"><path d="M13 8l-3-3-3 3h6zm-.1 4L10 14.9 7.1 12h5.8z" fill-rule="evenodd"></path></svg></span></div>
+        <div class="Polaris-Select__Backdrop"></div>
+    </div>
+
+</plrsLabelled>

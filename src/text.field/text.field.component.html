@@ -1,5 +1,5 @@
-<plrsLabelled [label]="label" [id]="id" [helpText]="helpText">
-    <div class="Polaris-TextField">
+<plrsLabelled [label]="label" [id]="id" [helpText]="helpText" [error]="model.dirty && (invalid | async) && (failures | async)">
+    <div class="Polaris-TextField" [class.Polaris-TextField--error]="model.dirty && (invalid | async)">
         <ng-container *ngIf="prefix">
             <div class="Polaris-TextField__Prefix" id="{{ id }}Prefix">
                 <plrsTempalteOrString [value]="prefix" display="inline"></plrsTempalteOrString>
@@ -14,6 +14,9 @@
             [(ngModel)]="value"
             [placeholder]="placeholder"
             (keyup)="triggerKeyUp($event)"
+            [required]="required !== false"
+            [readonly]="readOnly !== false"
+            [disabled]="disabled !== false"
              />
         <div class="Polaris-TextField__Backdrop"></div>
     </div>

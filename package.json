@@ -61,6 +61,7 @@
     "node": ">=6.0.0"
   },
   "dependencies": {
+    "@shopify/images": "^1.0.0",
     "@shopify/javascript-utilities": "^1.1.2"
   }
 }

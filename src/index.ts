@@ -20,6 +20,8 @@ import { SectionComponent } from './layout/section.component';
 import { ResourceListComponent } from './resource.list/resource.list.component';
 import { ResourceListItemComponent } from './resource.list/resource.list.item.component';
 
+import { SelectComponent } from './select/select.component';
+
 import { StackComponent } from './stack/stack.component';
 import { StackItemComponent } from './stack/stack.item.component';
 
@@ -52,6 +54,7 @@ export * from './types';
         LabelledComponent,
         TextFieldComponent,
         TemplateOrStringComponent,
+        SelectComponent,
     ],
     exports: [
         ButtonComponent,
@@ -70,6 +73,7 @@ export * from './types';
         LabelledComponent,
         TextFieldComponent,
         TemplateOrStringComponent,
+        SelectComponent,
     ]
 })
 export class AngularPolarisModule {
