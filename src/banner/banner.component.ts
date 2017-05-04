@@ -34,32 +34,30 @@ export class BannerComponent implements OnInit {
 
     private id = getUniqueID();
 
-    private _icon : string|TemplateRef<any>;
+    private _icon : string;
 
     /**
      * Icon to display in the banner.
      */
-    @Input() get icon(): string|TemplateRef<any> {
+    @Input() get icon(): string {
         if (this._icon) {
             return this._icon;
         } else {
-            // switch (this.status) {
-                // case 'success':
-                //     return successIcon;
-                // case 'info':
-                //     return infoIcon;
-                // case 'warning':
-                //     return successWarning;
-                // case 'critical':
-                //     return infoCritical;
-                // default:
-                //     return fallbackIcon;
-
-            //}
-            return '';
+            switch (this.status) {
+                case 'success':
+                    return 'circle-check-mark';
+                case 'info':
+                    return 'flag';
+                case 'warning':
+                    return 'circle-alert';
+                case 'critical':
+                    return 'circle-barred';
+                default:
+                    return 'confetti';
+            }
         }
     };
-    set icon(value: string|TemplateRef<any>) {
+    set icon(value: string) {
         this._icon = value;
     }
 

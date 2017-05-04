@@ -43,6 +43,8 @@ export class ButtonComponent implements OnInit {
         this.click.emit(null);
     };
 
+    @Output() click: EventEmitter<any> = new EventEmitter();
+
     /**
      * 	Display as primary button
      */
@@ -68,10 +70,19 @@ export class ButtonComponent implements OnInit {
      */
     @Input() routerLinkActive: boolean = false;
 
-
-    @Output() click: EventEmitter<any> = new EventEmitter();
-
     @Input() inGroup: boolean = false;
+
+    @Input() outline: boolean = false;
+
+    @Input() iconOnly: boolean = false;
+
+    @Input() icon: string;
+
+
+    /**
+     * Apply classes to the inner button.
+     */
+    @Input() innerClass: string = '';
 
     ngClass() {
         return {
@@ -79,6 +90,9 @@ export class ButtonComponent implements OnInit {
             'Polaris-Button--destructive': this.destructive !== false,
             'Polaris-Button--disabled': this.disabled !== false,
             'Polaris-Button--plain': this.plain !== false,
+            'Polaris-Button--outline': this.outline !== false,
+            'Polaris-Button--iconOnly': this.iconOnly !== false,
+
         }
     }
 
