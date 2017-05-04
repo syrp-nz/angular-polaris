@@ -4,9 +4,8 @@
         aria-describedby=""
         class="Polaris-ResourceList__Link"
         data-polaris-unstyled="true"
-        [href]="routerLinkActive === false ? url : false"
-        [routerLink]="routerLinkActive !== false ? url : false"
-        [routerLinkActive]="routerLinkActive !== false ? 'active' : false"></a>
+        [href]="routerLink === false ? url : false"
+        [routerLink]="routerLink !== false ? url : false"></a>
     <div class="Polaris-ResourceList__Container">
 
         <div class="Polaris-ResourceList__Media" *ngIf="media">
