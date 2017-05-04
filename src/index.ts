@@ -29,6 +29,8 @@ import { TextFieldComponent } from './text.field/text.field.component';
 
 import { TemplateOrStringComponent } from './utilities/template.or.string.component';
 
+import { ThumbnailComponent } from './thumbnail/thumbnail.component';
+
 export * from './types';
 
 @NgModule({
@@ -55,6 +57,7 @@ export * from './types';
         TextFieldComponent,
         TemplateOrStringComponent,
         SelectComponent,
+        ThumbnailComponent,
     ],
     exports: [
         ButtonComponent,
@@ -74,6 +77,7 @@ export * from './types';
         TextFieldComponent,
         TemplateOrStringComponent,
         SelectComponent,
+        ThumbnailComponent,
     ]
 })
 export class AngularPolarisModule {
