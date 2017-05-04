@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, HostListener } from '@angular/core';
+import { Component, Input, OnInit, HostListener, TemplateRef } from '@angular/core';
 
 /**
  * Component to display a Shopify layout
@@ -17,8 +17,8 @@ export class ResourceListItemComponent implements OnInit {
     @Input() attributeOne: string;
     @Input() attributeTwo: string;
     @Input() attributeThree: string;
-
     @Input() routerLinkActive: boolean = false;
+    @Input() media: string|TemplateRef<any> = "";
 
     state = {
         actionsMenuVisible: false,

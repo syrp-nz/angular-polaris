@@ -1,5 +1,6 @@
 <div class="Polaris-ResourceList__Item Polaris-ResourceList__Item--link" [ngClass]="ngClass()">
     <a
+        *ngIf="url"
         aria-describedby=""
         class="Polaris-ResourceList__Link"
         data-polaris-unstyled="true"
@@ -7,6 +8,11 @@
         [routerLink]="routerLinkActive !== false ? url : false"
         [routerLinkActive]="routerLinkActive !== false ? 'active' : false"></a>
     <div class="Polaris-ResourceList__Container">
+
+        <div class="Polaris-ResourceList__Media" *ngIf="media">
+            <plrsTempalteOrString [value]="media"></plrsTempalteOrString>
+        </div>
+
         <div class="Polaris-ResourceList__Content">
             <div class="Polaris-ResourceList__Attributes">
                 <p class="Polaris-ResourceList__AttributeOne">{{ attributeOne }}</p>
