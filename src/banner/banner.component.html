@@ -1,0 +1,18 @@
+<div class="Polaris-Banner__Dismiss">
+    <button type="button" class="Polaris-Button Polaris-Button--plain Polaris-Button--iconOnly" aria-label="Dismiss notification">
+        <span class="Polaris-Button__Content"><span class="Polaris-Button__Icon">
+            <plrsIcon source="cancelSmall"></plrsIcon>
+        </span></span>
+    </button>
+</div>
+<div class="Polaris-Banner__Ribbon">
+    <plrsIcon source="confetti" backdrop [color]="iconColor"></plrsIcon>
+</div>
+<div>
+    <div class="Polaris-Banner__Heading" id="{{ id }}Heading">
+        <p class="Polaris-Heading">Title</p>
+    </div>
+    <div class="Polaris-Banner__Content" id="{{ id }}Content">
+        <ng-content></ng-content>
+    </div>
+</div>

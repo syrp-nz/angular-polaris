@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 
+import { BannerComponent } from './banner/banner.component';
+
 import { ButtonComponent } from './button/button.component';
 import { ButtonGroupComponent } from './button/button.group.component';
 
@@ -11,10 +13,13 @@ import { CardComponent } from './card/card.component';
 import { CardSectionComponent } from './card/card.section.component';
 import { HeaderComponent } from './card/header.component';
 
+import { IconComponent } from './icon/icon.component';
+
 import { LabelComponent } from './label/label.component';
 import { LabelledComponent } from './labelled/labelled.component';
 
 import { LayoutComponent, SectionedLayoutComponent } from './layout/layout.component';
+import { LayoutAnnotatedSectionComponent } from './layout/layout.annotated.section.component';
 import { SectionComponent } from './layout/section.component';
 
 import { ResourceListComponent } from './resource.list/resource.list.component';
@@ -40,6 +45,7 @@ export * from './types';
         FormsModule,
     ],
     declarations: [
+        BannerComponent,
         ButtonComponent,
         ButtonGroupComponent,
         CardComponent,
@@ -58,8 +64,11 @@ export * from './types';
         TemplateOrStringComponent,
         SelectComponent,
         ThumbnailComponent,
+        LayoutAnnotatedSectionComponent,
+        IconComponent,
     ],
     exports: [
+        BannerComponent,
         ButtonComponent,
         ButtonGroupComponent,
         CardComponent,
@@ -78,6 +87,8 @@ export * from './types';
         TemplateOrStringComponent,
         SelectComponent,
         ThumbnailComponent,
+        LayoutAnnotatedSectionComponent,
+        IconComponent,
     ]
 })
 export class AngularPolarisModule {
