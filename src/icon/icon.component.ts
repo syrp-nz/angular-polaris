@@ -11,8 +11,7 @@ import { SVGSource } from '@shopify/images';
     host: {
         '[class.Polaris-Icon]': 'true',
         '[class.Polaris-Icon--hasBackdrop]': 'backdrop !== false',
-    },
-    styles: [':host {display: inline-block;}']
+    }
 })
 export class IconComponent implements OnInit {
 
