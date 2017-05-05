@@ -1,12 +1,29 @@
-<a *ngIf="url"
+<a *ngIf="url && routerLink"
     class="Polaris-Button {{innerClass}}"
-    [href]="routerLinkActive === false ? url : false"
-    [routerLink]="routerLinkActive !== false ? url : false"
-    [routerLinkActive]="routerLinkActive !== false ? 'active' : false"
+    [routerLink]="routerLink"
     data-polaris-unstyled="true"
     [attr.aria-label]="accessibilityLabel"
     [ngClass]="ngClass()"
     [attr.disabled]="disabled !== false">
+    <span class="Polaris-Button__Content">
+        <span class="Polaris-Button__Icon" *ngIf="icon">
+            <plrsIcon [source]="icon"></plrsIcon>
+        </span>
+        <span *ngIf="iconOnly === false">
+            <ng-container *ngIf="children else elseTpl">
+                {{ children }}
+            </ng-container>
+        </span>
+    </span>
+</a>
+<a *ngIf="url && href"
+    class="Polaris-Button {{innerClass}}"
+    [href]="href"
+    data-polaris-unstyled="true"
+    [attr.aria-label]="accessibilityLabel"
+    [ngClass]="ngClass()"
+    [attr.disabled]="disabled !== false"
+    [target]="external !== false ? _blank : ''">
     <span class="Polaris-Button__Content">
         <span class="Polaris-Button__Icon" *ngIf="icon">
             <plrsIcon [source]="icon"></plrsIcon>

@@ -14,7 +14,7 @@ import { AngularComplexAction } from '../types';
 })
 export class ButtonComponent implements OnInit {
 
-    ngOnInit() { }
+    ngOnInit() { console.dir(this.iconOnly) }
 
 
     @Input() set fromAction(action:AngularComplexAction) {
@@ -74,6 +74,8 @@ export class ButtonComponent implements OnInit {
 
     @Input() outline: boolean = false;
 
+    @Input() external: boolean = false;
+
     @Input() iconOnly: boolean = false;
 
     @Input() icon: string;
@@ -93,6 +95,22 @@ export class ButtonComponent implements OnInit {
             'Polaris-Button--outline': this.outline !== false,
             'Polaris-Button--iconOnly': this.iconOnly !== false,
 
+        }
+    }
+
+    private get href() {
+        if (this.routerLinkActive === false) {
+            return this.url;
+        } else {
+            return false;
+        }
+    }
+
+    private get routerLink() {
+        if (this.routerLinkActive !== false) {
+            return this.url;
+        } else {
+            return false;
         }
     }
 
