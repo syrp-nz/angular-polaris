@@ -1,12 +1,10 @@
-<div class="Polaris-Banner__Dismiss">
-    <plrsButton iconOnly plain icon="cancelSmall" accessibilityLabel="Dismiss notification"></plrsButton>
-</div>
+<div class="Polaris-Banner__Dismiss" *ngIf="onDismiss"><plrsButton iconOnly plain icon="cancelSmall" [onAction]="onDismiss" accessibilityLabel="Dismiss notification"></plrsButton></div>
 <div class="Polaris-Banner__Ribbon">
     <plrsIcon [source]="icon" backdrop [color]="iconColor"></plrsIcon>
 </div>
 <div>
     <div class="Polaris-Banner__Heading" id="{{ id }}Heading">
-        <p class="Polaris-Heading">Title</p>
+        <p class="Polaris-Heading">{{ title }}</p>
     </div>
     <div class="Polaris-Banner__Content" id="{{ id }}Content">
         <ng-content></ng-content>
