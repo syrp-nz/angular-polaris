@@ -17,7 +17,7 @@ export class ResourceListItemComponent implements OnInit {
     @Input() attributeOne: string;
     @Input() attributeTwo: string;
     @Input() attributeThree: string;
-    @Input() routerLink: boolean = false;
+    @Input() routerLink: string = '';
     @Input() media: string|TemplateRef<any> = "";
 
     state = {
