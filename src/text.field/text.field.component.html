@@ -14,10 +14,17 @@
             [(ngModel)]="value"
             [placeholder]="placeholder"
             (keyup)="triggerKeyUp($event)"
+            (change)="triggerChange($event)"
             [required]="required !== false"
             [readonly]="readOnly !== false"
             [disabled]="disabled !== false"
+            [type]="type"
+            [step]="displayLimit(step)"
+            [max]="displayLimit(max)"
+            [min]="displayLimit(min)"
+            #field
              />
+        <plrsSpinner *ngIf="type=='number'" (click)="handleInputFocus()" (change)="handleNumberChange($event)"></plrsSpinner>
         <div class="Polaris-TextField__Backdrop"></div>
     </div>
 

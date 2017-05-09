@@ -31,6 +31,7 @@ import { StackComponent } from './stack/stack.component';
 import { StackItemComponent } from './stack/stack.item.component';
 
 import { TextFieldComponent } from './text.field/text.field.component';
+import { SpinnerComponent } from './text.field/spinner.component';
 
 import { TemplateOrStringComponent } from './utilities/template.or.string.component';
 
@@ -66,6 +67,7 @@ export * from './types';
         ThumbnailComponent,
         LayoutAnnotatedSectionComponent,
         IconComponent,
+        SpinnerComponent,
     ],
     exports: [
         BannerComponent,
@@ -89,6 +91,7 @@ export * from './types';
         ThumbnailComponent,
         LayoutAnnotatedSectionComponent,
         IconComponent,
+        SpinnerComponent,
     ]
 })
 export class AngularPolarisModule {

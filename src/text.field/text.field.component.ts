@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit, EventEmitter, forwardRef, Optional, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter, forwardRef, Optional, Inject, TemplateRef, ViewChild, ElementRef } from '@angular/core';
 import { NgModel, DefaultValueAccessor, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, NG_ASYNC_VALIDATORS } from '@angular/forms';
 import { AngularComplexAction } from '../types';
 import { createUniqueIDFactory } from '@shopify/javascript-utilities/other';
@@ -22,6 +22,8 @@ export class TextFieldComponent extends ElementBase<string>  implements OnInit {
     ngOnInit() {
         console.dir(this.helpText);
     }
+
+    @Output() change: EventEmitter<string> = new EventEmitter<string>();
 
     constructor(
         @Optional() @Inject(NG_VALIDATORS) validators: Array<any>,
@@ -57,14 +59,14 @@ export class TextFieldComponent extends ElementBase<string>  implements OnInit {
     @Input() error: Error;
     // @Input() connectedRight?: React.ReactNode;
     // @Input() connectedLeft?: React.ReactNode;
-    // @Input() type: Type;
+    @Input() type: string;
     @Input() name: string;
     @Input() id = getUniqueID();
-    @Input() step: number;
+    @Input() step: number = 1;
     @Input() autoComplete: boolean;
-    @Input() max: number;
+    @Input() max: number = Infinity;
     @Input() maxLength: number;
-    @Input() min: number;
+    @Input() min: number = -Infinity;
     @Input() minLength: number;
     @Input() pattern: string;
     @Input() spellCheck: boolean;
@@ -76,10 +78,43 @@ export class TextFieldComponent extends ElementBase<string>  implements OnInit {
 
     @ViewChild(NgModel) model: NgModel;
 
+    @ViewChild('field') private field: ElementRef;
+
 
     @Output() keyup = new EventEmitter<KeyboardEvent>();
 
-    triggerKeyUp(event: KeyboardEvent) {
+    private triggerKeyUp(event: KeyboardEvent) {
         this.keyup.emit(event);
+    }
+
+    private triggerChange(value: string) {
+        this.change.emit(value);
+        if (typeof this.onChange == 'function'){
+            this.onChange(this.value);
+        }
+    }
+
+    private handleInputFocus() {
+        this.field.nativeElement.focus();
+    }
+
+    private handleNumberChange(steps: number) {
+        const numericValue = this.value ? parseFloat(this.value) : 0;
+        if (isNaN(numericValue)) { return; }
+        const newValue = Math.min(this.max, Math.max(numericValue + (steps * this.step), this.min));
+
+        if (newValue != numericValue) {
+            this.value = newValue.toString();
+            this.triggerChange(this.value);
+        }
+
+    }
+
+    private displayLimit(value: number): string {
+        if (this.type == 'number' && isFinite(value)) {
+            return value.toString();
+        } else {
+            return '';
+        }
     }
 }
