@@ -19,11 +19,20 @@ The package is under active development, so beware. Polaris components are conve
 
 | Component     	| Implementation state 	| Extra details 	|
 |---------------	|----------------------	|---------------	|
+| Badge           	| Beta                 	|               	|
+| Banner        	| Beta                 	|               	|
 | Button        	| Beta                 	|               	|
 | Card          	| Beta                 	|               	|
+| Icon          	| Beta                 	|               	|
+| Label         	| Dev                 	|               	|
+| Labelled         	| Dev                 	|               	|
 | Layout        	| Beta                 	|               	|
 | Resource List 	| Dev                  	|               	|
+| Select         	| Dev                 	|               	|
 | Stack         	| Beta                 	|               	|
+| Textfield        	| Dev                 	|               	|
+| Thumbnail        	| Dev                 	|               	|
+| Visually Hidden  	| Beta                 	|               	|
 
 ## Installation
 
