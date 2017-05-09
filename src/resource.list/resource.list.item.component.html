@@ -21,7 +21,11 @@
             <div class="Polaris-ResourceList__Attributes">
                 <p class="Polaris-ResourceList__AttributeOne">{{ attributeOne }}</p>
                 <div class="Polaris-ResourceList__AttributeTwo">{{ attributeTwo }}</div>
-                <!--div class="Polaris-ResourceList__Badge"><span class="Polaris-Badge">Hidden</span></div-->
+
+                <div class="Polaris-ResourceList__Badge" *ngIf="badges">
+                    <plrsBadge *ngFor="let badge of badges" [status]="badge.status">{{ badge.content }}</plrsBadge>
+                </div>
+
                 <div class="Polaris-ResourceList__AttributeThree">{{ attributeThree }}</div>
             </div>
         </div>

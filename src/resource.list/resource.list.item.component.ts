@@ -19,13 +19,17 @@ export class ResourceListItemComponent implements OnInit {
     @Input() attributeThree: string;
     @Input() routerLink: string = '';
     @Input() media: string|TemplateRef<any> = "";
+    @Input() badges: {status: string, content: string}[] = [];
+
 
     state = {
         actionsMenuVisible: false,
         focused: false,
     };
 
-    ngOnInit() { }
+    ngOnInit() {
+        console.dir(this.badges)
+    }
 
     @HostListener('mouseenter') @HostListener('focus') focus() {
         this.state.focused = true;
