@@ -14,7 +14,7 @@ import { AngularComplexAction } from '../types';
 })
 export class ButtonComponent implements OnInit {
 
-    ngOnInit() { console.dir(this.iconOnly) }
+    ngOnInit() { }
 
 
     @Input() set fromAction(action:AngularComplexAction) {

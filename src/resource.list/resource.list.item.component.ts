@@ -27,9 +27,7 @@ export class ResourceListItemComponent implements OnInit {
         focused: false,
     };
 
-    ngOnInit() {
-        console.dir(this.badges)
-    }
+    ngOnInit() { }
 
     @HostListener('mouseenter') @HostListener('focus') focus() {
         this.state.focused = true;

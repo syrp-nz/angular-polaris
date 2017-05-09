@@ -19,9 +19,7 @@ const getUniqueID = createUniqueIDFactory('TextField');
 })
 export class TextFieldComponent extends ElementBase<string>  implements OnInit {
 
-    ngOnInit() {
-        console.dir(this.helpText);
-    }
+    ngOnInit() { }
 
     @Output() change: EventEmitter<string> = new EventEmitter<string>();
 

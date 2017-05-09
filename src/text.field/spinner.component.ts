@@ -23,13 +23,11 @@ export class SpinnerComponent {
     @Input() onClick: {(): void} = () => {};
 
     protected handleStep(step: number) {
-        console.log('spinner change');
         this.onChange(step);
         this.change.emit(step);
     }
 
     @HostListener('click') protected handleClick() {
-        console.log('spinner click');
         this.onClick();
     }
 
