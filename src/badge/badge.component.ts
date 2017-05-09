@@ -28,6 +28,9 @@ const STATUS_LABELS = {
         '[class.Polaris-Badge--statusInfo]': 'status == "info"',
         '[class.Polaris-Badge--statusWarning]': 'status == "warning"',
         '[class.Polaris-Badge--statusAttention]': 'status == "attention"',
+        '[class.Polaris-Badge--progressIncomplete]': 'progress == "incomplete"',
+        '[class.Polaris-Badge--progressPartiallyComplete]': 'progress == "partiallyComplete"',
+        '[class.Polaris-Badge--progressComplete]': 'progress == "complete"',
     },
 })
 export class BadgeComponent implements OnInit {
