@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 
+import { BadgeComponent } from './badge/badge.component';
+
 import { BannerComponent } from './banner/banner.component';
 
 import { ButtonComponent } from './button/button.component';
@@ -37,6 +39,8 @@ import { TemplateOrStringComponent } from './utilities/template.or.string.compon
 
 import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 
+import { VisuallyHiddenComponent } from './visually.hidden/visually.hidden.component';
+
 export * from './types';
 
 @NgModule({
@@ -47,6 +51,7 @@ export * from './types';
     ],
     declarations: [
         BannerComponent,
+        BadgeComponent,
         ButtonComponent,
         ButtonGroupComponent,
         CardComponent,
@@ -68,9 +73,11 @@ export * from './types';
         LayoutAnnotatedSectionComponent,
         IconComponent,
         SpinnerComponent,
+        VisuallyHiddenComponent
     ],
     exports: [
         BannerComponent,
+        BadgeComponent,
         ButtonComponent,
         ButtonGroupComponent,
         CardComponent,
@@ -92,6 +99,7 @@ export * from './types';
         LayoutAnnotatedSectionComponent,
         IconComponent,
         SpinnerComponent,
+        VisuallyHiddenComponent
     ]
 })
 export class AngularPolarisModule {

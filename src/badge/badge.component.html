@@ -1,0 +1,7 @@
+<span *ngIf="progress" class="Polaris-Badge__Pip">
+    <plrsVisuallyHidden>{{ progressLabel }}</plrsVisuallyHidden>
+</span>
+
+<plrsVisuallyHidden *ngIf="status">{{ statusLabel }}</plrsVisuallyHidden>
+
+<ng-content></ng-content>
