@@ -1,11 +1,15 @@
 <plrsLabelled [label]="label" [id]="id" [helpText]="helpText" [error]="model.dirty && (invalid | async) && (failures | async)">
-    <div class="Polaris-TextField" [class.Polaris-TextField--error]="model.dirty && (invalid | async)">
+    <div class="Polaris-TextField"
+        [class.Polaris-TextField--error]="model.dirty && (invalid | async)"
+        [class.Polaris-TextField--multiline]="multiline !== false"
+        >
         <ng-container *ngIf="prefix">
             <div class="Polaris-TextField__Prefix" id="{{ id }}Prefix">
                 <plrsTempalteOrString [value]="prefix" display="inline"></plrsTempalteOrString>
             </div>
         </ng-container>
         <input
+            *ngIf="multiline === false"
             [id]="id"
             [name]="name"
             class="Polaris-TextField__Input"
@@ -24,6 +28,23 @@
             [min]="displayLimit(min)"
             #field
              />
+
+            <textarea
+                *ngIf="multiline !== false"
+                [id]="id"
+                [name]="name"
+                class="Polaris-TextField__Input"
+                attr.aria-labelledby="{{ id }}Label"
+                aria-invalid="false"
+                [(ngModel)]="value"
+                [placeholder]="placeholder"
+                (keyup)="triggerKeyUp($event)"
+                (change)="triggerChange($event)"
+                [required]="required !== false"
+                [readonly]="readOnly !== false"
+                [disabled]="disabled !== false"
+                #field></textarea>
+
         <plrsSpinner *ngIf="type=='number'" (click)="handleInputFocus()" (change)="handleNumberChange($event)"></plrsSpinner>
         <div class="Polaris-TextField__Backdrop"></div>
     </div>

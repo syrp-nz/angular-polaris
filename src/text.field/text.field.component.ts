@@ -53,7 +53,7 @@ export class TextFieldComponent extends ElementBase<string>  implements OnInit {
     @Input() disabled: boolean = false;
     @Input() readOnly: boolean = false;
     @Input() autoFocus: boolean;
-    @Input() multiline: boolean | number;
+    @Input() multiline: boolean | number = false;
     @Input() error: Error;
     // @Input() connectedRight?: React.ReactNode;
     // @Input() connectedLeft?: React.ReactNode;
