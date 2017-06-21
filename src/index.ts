@@ -34,6 +34,7 @@ import { StackItemComponent } from './stack/stack.item.component';
 
 import { TextFieldComponent } from './text.field/text.field.component';
 import { SpinnerComponent } from './text.field/spinner.component';
+import { ResizerComponent } from './text.field/resizer.component';
 
 import { TemplateOrStringComponent } from './utilities/template.or.string.component';
 
@@ -67,6 +68,7 @@ export * from './types';
         LabelComponent,
         LabelledComponent,
         TextFieldComponent,
+        ResizerComponent,
         TemplateOrStringComponent,
         SelectComponent,
         ThumbnailComponent,
@@ -93,6 +95,7 @@ export * from './types';
         LabelComponent,
         LabelledComponent,
         TextFieldComponent,
+        ResizerComponent,
         TemplateOrStringComponent,
         SelectComponent,
         ThumbnailComponent,
