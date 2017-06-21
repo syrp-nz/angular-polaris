@@ -12,7 +12,7 @@ import { ElementBase} from '../form/element.base';
     selector: 'plrsResizer',
     templateUrl: 'resizer.component.html',
     host: {
-        '[Polaris-TextField__Resizer]': 'true',
+        '[class.Polaris-TextField__Resizer]': 'true',
         '[attr.aria-hidden]': '"true"'
     }
 })
