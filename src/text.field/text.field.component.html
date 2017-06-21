@@ -1,6 +1,6 @@
-<plrsLabelled [label]="label" [id]="id" [helpText]="helpText" [error]="model.dirty && (invalid | async) && (failures | async)">
+<plrsLabelled [label]="label" [id]="id" [helpText]="helpText" [error]="model?.dirty && (invalid | async) && (failures | async)">
     <div class="Polaris-TextField"
-        [class.Polaris-TextField--error]="model.dirty && (invalid | async)"
+        [class.Polaris-TextField--error]="model?.dirty && (invalid | async)"
         [class.Polaris-TextField--multiline]="multiline !== false"
         >
         <ng-container *ngIf="prefix">
@@ -26,8 +26,8 @@
             [step]="displayLimit(step)"
             [max]="displayLimit(max)"
             [min]="displayLimit(min)"
-            #field
-             />
+            #fieldInput
+            #inputModel="ngModel" />
 
             <textarea
                 *ngIf="multiline !== false"
@@ -43,7 +43,9 @@
                 [required]="required !== false"
                 [readonly]="readOnly !== false"
                 [disabled]="disabled !== false"
-                #field></textarea>
+                #fieldTextarea
+                #textareaModel="ngModel"></textarea>
+            <plrsResizer [contents]="value"></plrsResizer>
 
         <plrsSpinner *ngIf="type=='number'" (click)="handleInputFocus()" (change)="handleNumberChange($event)"></plrsSpinner>
         <div class="Polaris-TextField__Backdrop"></div>

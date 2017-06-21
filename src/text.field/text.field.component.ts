@@ -74,9 +74,17 @@ export class TextFieldComponent extends ElementBase<string>  implements OnInit {
     @Input() required: boolean = false;
 
 
-    @ViewChild(NgModel) model: NgModel;
+    @ViewChild('fieldInput') private fieldInput: ElementRef;
+    @ViewChild('fieldTextarea') private fieldTextarea: ElementRef;
+    private get field(): ElementRef {
+        return (this.multiline === false) ? this.fieldInput : this.fieldTextarea;
+    }
 
-    @ViewChild('field') private field: ElementRef;
+    @ViewChild('textareaModel') private textareaModel: NgModel;
+    @ViewChild('inputModel') private inputModel: NgModel;
+    get model(): NgModel {
+        return (this.multiline === false) ? this.inputModel : this.textareaModel;
+    }
 
 
     @Output() keyup = new EventEmitter<KeyboardEvent>();
