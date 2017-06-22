@@ -56,7 +56,7 @@ export class ResizerComponent implements OnInit, OnChanges {
                 this.currentHeight = updatedHeight;
                 this.heightChange.emit(updatedHeight);
             }
-        }, 10);
+        }, 0);
     }
 
     ngOnInit() {
