@@ -29,23 +29,26 @@
             #fieldInput
             #inputModel="ngModel" />
 
-            <textarea
-                *ngIf="multiline !== false"
-                [id]="id"
-                [name]="name"
-                class="Polaris-TextField__Input"
-                attr.aria-labelledby="{{ id }}Label"
-                aria-invalid="false"
-                [(ngModel)]="value"
-                [placeholder]="placeholder"
-                (keyup)="triggerKeyUp($event)"
-                (change)="triggerChange($event)"
-                [required]="required !== false"
-                [readonly]="readOnly !== false"
-                [disabled]="disabled !== false"
-                #fieldTextarea
-                #textareaModel="ngModel"></textarea>
-            <plrsResizer [contents]="value"></plrsResizer>
+        <textarea
+            *ngIf="multiline !== false"
+            [id]="id"
+            [name]="name"
+            class="Polaris-TextField__Input"
+            attr.aria-labelledby="{{ id }}Label"
+            aria-invalid="false"
+            [(ngModel)]="value"
+            [placeholder]="placeholder"
+            (keyup)="triggerKeyUp($event)"
+            (change)="triggerChange($event)"
+            [required]="required !== false"
+            [readonly]="readOnly !== false"
+            [disabled]="disabled !== false"
+            #fieldTextarea
+            #textareaModel="ngModel"></textarea>
+        <plrsResizer
+            [contents]="value"
+            [minimumLines]="multiline === false ? 1 : multiline"
+            (heightChange)="resizeTextarea($event)"></plrsResizer>
 
         <plrsSpinner *ngIf="type=='number'" (click)="handleInputFocus()" (change)="handleNumberChange($event)"></plrsSpinner>
         <div class="Polaris-TextField__Backdrop"></div>

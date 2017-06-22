@@ -123,4 +123,12 @@ export class TextFieldComponent extends ElementBase<string>  implements OnInit {
             return '';
         }
     }
+
+    private resizeTextarea(height: number) {
+        console.dir(height);
+        if (this.fieldTextarea !== undefined) {
+            console.dir(height);
+            this.fieldTextarea.nativeElement.style.height = `${height}px`;
+        }
+    }
 }
