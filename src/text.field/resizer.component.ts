@@ -1,8 +1,5 @@
-import { Component, Input, Output, OnInit, OnChanges, EventEmitter, forwardRef, Optional, Inject, TemplateRef, ViewChild, ElementRef } from '@angular/core';
-import { NgModel, DefaultValueAccessor, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, NG_ASYNC_VALIDATORS } from '@angular/forms';
-import { AngularComplexAction } from '../types';
-import { createUniqueIDFactory } from '@shopify/javascript-utilities/other';
-import { ElementBase} from '../form/element.base';
+import { Component, Input, Output, OnInit, OnChanges, EventEmitter, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 
 /**
@@ -51,6 +48,7 @@ export class ResizerComponent implements OnInit, OnChanges {
         return Math.max(contentHeight, minHeight);
     }
 
+    @HostListener('window:resize', ['$event'])
     ngOnChanges() {
         setTimeout(() => {
             const updatedHeight = this.getHeight();
