@@ -1,0 +1,1 @@
+export { AngularPolarisModule } from './AngularPolarisModule';

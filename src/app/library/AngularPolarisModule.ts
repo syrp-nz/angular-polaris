@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { QuillModule } from 'ngx-quill';
 
 
 import { BadgeComponent } from './badge/badge.component';
@@ -49,6 +50,7 @@ export * from './types';
         CommonModule,
         RouterModule,
         FormsModule,
+        // QuillModule,
     ],
     declarations: [
         BannerComponent,

@@ -1,7 +1,10 @@
 {
-  "generator-angular2-library": {
+  "generator-angular-cli-library": {
     "promptValues": {
-      "gitRepositoryUrl": "git@github.com:syrp-nz/angular-polaris.git"
+      "authorName": "Maxime Rainville",
+      "authorEmail": "maxime@rainville.me",
+      "prefix": "plrs",
+      "gitRepositoryUrl": "https://github.com/syrp-nz/angular-polaris"
     }
   }
 }

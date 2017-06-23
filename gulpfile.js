@@ -3,15 +3,32 @@ var gulp = require('gulp'),
   path = require('path'),
   ngc = require('@angular/compiler-cli/src/main').main,
   rollup = require('gulp-rollup'),
+  rename = require('gulp-rename'),
   del = require('del'),
   runSequence = require('run-sequence'),
-  inlineResources = require('./tools/gulp/inline-resources');
+  inlineResources = require('./tools/gulp/inline-resources'),
+  typedoc = require("gulp-typedoc"),
+  replace = require('gulp-replace');
 
 const rootFolder = path.join(__dirname);
 const srcFolder = path.join(rootFolder, 'src');
 const tmpFolder = path.join(rootFolder, '.tmp');
 const buildFolder = path.join(rootFolder, 'build');
 const distFolder = path.join(rootFolder, 'dist');
+const sources = [`${srcFolder}/app/library/**/*`, `!${srcFolder}/app/library/**/*.spec.ts`];
+/**
+ * library external dependencies
+ */
+const externalDependencies = {
+        typescript: 'ts',
+        '@angular/core': '@angular/core',
+        '@angular/common': '@angular/common',
+        'rxjs/Rx': 'rxjs/Rx'
+      };
+
+function resolveDependencies(id) {
+  return externalDependencies[id];
+}
 
 /**
  * 1. Delete /dist folder
@@ -21,12 +38,18 @@ gulp.task('clean:dist', function () {
 });
 
 /**
- * 2. Clone the /src folder into /.tmp. If an npm link inside /src has been made,
- *    then it's likely that a node_modules folder exists. Ignore this folder
- *    when copying to /.tmp.
+ * 2. Clone the /src/app/library folder into /.tmp/app/library excluding test files
  */
 gulp.task('copy:source', function () {
-  return gulp.src([`${srcFolder}/**/*`, `!${srcFolder}/node_modules`])
+  return gulp.src(sources, {base: `${srcFolder}/app/library`})
+    .pipe(gulp.dest(tmpFolder));
+});
+
+/**
+ * 2.1. Clone the /src/index.ts and /src/tsconfig.es5.json folder into /.tmp
+ */
+gulp.task('copy:builDefinition', function () {
+  return gulp.src([`${srcFolder}/tsconfig.es5.json`])
     .pipe(gulp.dest(tmpFolder));
 });
 
@@ -61,24 +84,65 @@ gulp.task('ngc', function () {
  * 5. Run rollup inside the /build folder to generate our Flat ES module and place the
  *    generated file into the /dist folder
  */
-gulp.task('rollup', function () {
+gulp.task('rollup:fesm', function () {
   return gulp.src(`${buildFolder}/**/*.js`)
   // transform the files here.
     .pipe(rollup({
-      // any option supported by Rollup can be set here.
+      // Bundle's entry point
+      // See https://github.com/rollup/rollup/wiki/JavaScript-API#entry
       entry: `${buildFolder}/index.js`,
-      external: [
-        '@angular/core',
-        '@angular/common'
-      ],
-      format: 'es',
-      allowRealFiles: true
+
+      // A list of IDs of modules that should remain external to the bundle
+      // See https://github.com/rollup/rollup/wiki/JavaScript-API#external
+      external: resolveDependencies,
+
+      // Format of generated bundle
+      // See https://github.com/rollup/rollup/wiki/JavaScript-API#format
+      format: 'es'
     }))
     .pipe(gulp.dest(distFolder));
 });
 
 /**
- * 6. Copy all the files from /build to /dist, except .js files. We ignore all .js from /build
+ * 6. Run rollup inside the /build folder to generate our UMD module and place the
+ *    generated file into the /dist folder
+ */
+gulp.task('rollup:umd', function () {
+  return gulp.src(`${buildFolder}/**/*.js`)
+  // transform the files here.
+    .pipe(rollup({
+
+      // Bundle's entry point
+      // See https://github.com/rollup/rollup/wiki/JavaScript-API#entry
+      entry: `${buildFolder}/index.js`,
+
+      // A list of IDs of modules that should remain external to the bundle
+      // See https://github.com/rollup/rollup/wiki/JavaScript-API#external
+      external: resolveDependencies,
+
+      // Format of generated bundle
+      // See https://github.com/rollup/rollup/wiki/JavaScript-API#format
+      format: 'umd',
+
+      // Export mode to use
+      // See https://github.com/rollup/rollup/wiki/JavaScript-API#exports
+      exports: 'named',
+
+      // The name to use for the module for UMD/IIFE bundles
+      // (required for bundles with exports)
+      // See https://github.com/rollup/rollup/wiki/JavaScript-API#modulename
+      moduleName: 'angular-polaris',
+
+      // See https://github.com/rollup/rollup/wiki/JavaScript-API#globals
+      globals: externalDependencies
+
+    }))
+    .pipe(rename('angular-polaris.umd.js'))
+    .pipe(gulp.dest(distFolder));
+});
+
+/**
+ * 7. Copy all the files from /build to /dist, except .js files. We ignore all .js from /build
  *    because with don't need individual modules anymore, just the Flat ES module generated
  *    on step 5.
  */
@@ -88,22 +152,23 @@ gulp.task('copy:build', function () {
 });
 
 /**
- * 7. Copy package.json from /src to /dist
+ * 8. Copy manifest.json from /src to /dist/package.json
  */
 gulp.task('copy:manifest', function () {
-  return gulp.src([`${srcFolder}/package.json`])
+  return gulp.src([`${srcFolder}/manifest.json`])
+    .pipe(rename('package.json'))
     .pipe(gulp.dest(distFolder));
 });
 
 /**
- * 8. Delete /.tmp folder
+ * 9. Delete /.tmp folder
  */
 gulp.task('clean:tmp', function () {
   return deleteFolders([tmpFolder]);
 });
 
 /**
- * 9. Delete /build folder
+ * 10. Delete /build folder
  */
 gulp.task('clean:build', function () {
   return deleteFolders([buildFolder]);
@@ -113,9 +178,11 @@ gulp.task('compile', function () {
   runSequence(
     'clean:dist',
     'copy:source',
+    'copy:builDefinition',
     'inline-resources',
     'ngc',
-    'rollup',
+    'rollup:fesm',
+    'rollup:umd',
     'copy:build',
     'copy:manifest',
     'clean:build',
@@ -130,6 +197,25 @@ gulp.task('compile', function () {
     });
 });
 
+gulp.task("typedoc", function() {
+    return gulp
+        .src(sources)
+        .pipe(typedoc({
+            module: "amd",
+            out: "docs/",
+            readme: "README.md",
+            name: "angular-polaris",
+            ignoreCompilerErrors: true
+        }));
+});
+
+gulp.task("format:doc", function () {
+  return gulp
+        .src("docs/**/*.html")
+        .pipe(replace("_@_", "@"))
+        .pipe(gulp.dest("docs/"));
+});
+
 /**
  * Watch for any change in the /src folder and compile files
  */
@@ -141,6 +227,8 @@ gulp.task('clean', ['clean:dist', 'clean:tmp', 'clean:build']);
 
 gulp.task('build', ['clean', 'compile']);
 gulp.task('build:watch', ['build', 'watch']);
+gulp.task('docs', function() { runSequence('typedoc', 'format:doc')});
+gulp.task('docs:watch', ['docs', 'watch']);
 gulp.task('default', ['build:watch']);
 
 /**

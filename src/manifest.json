@@ -1,0 +1,27 @@
+{
+  "name": "angular-polaris",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syrp-nz/angular-polaris"
+  },
+  "author": {
+    "name": "Maxime Rainville",
+    "email": "maxime@rainville.me"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/syrp-nz/angular-polaris/issues"
+  },
+  "module": "index.js",
+  "typings": "angular-polaris.d.ts",
+  "main": "angular-polaris.umd.js",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}

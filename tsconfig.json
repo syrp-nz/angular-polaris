@@ -1,19 +1,23 @@
-// This file is only used to configure the editor during development.
-// It is NOT used for building the library.
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./src",
-    "experimentalDecorators": true,
-    "compileOnSave": false,
+    "outDir": "./dist/out-tsc",
+    "baseUrl": "src",
+    "sourceMap": true,
+    "declaration": false,
     "moduleResolution": "node",
-    "rootDir": "./src",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "target": "es5",
-    "lib": [
-      "es2015",
-      "dom"
+    "typeRoots": [
+      "node_modules/@types"
     ],
-    "skipLibCheck": true,
-    // Don't auto-discover @types/node, it results in a ///<reference in the .d.ts output
-    "types": []
-  }
+    "lib": [
+      "es2016",
+      "dom"
+    ]
+  },
+  "exclude": [
+    "./node_modules"
+  ]
 }
