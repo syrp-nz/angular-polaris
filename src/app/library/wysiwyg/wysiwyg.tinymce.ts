@@ -4,8 +4,8 @@ import { AngularComplexAction } from '../types';
 import { createUniqueIDFactory } from '@shopify/javascript-utilities/other';
 import { ElementBase} from '../form/element.base';
 
-import * as Quill from 'quill';
-// declare const Quill;
+// import * as tinymce from 'tinymce';
+declare let tinymce: any;
 
 const getUniqueID = createUniqueIDFactory('Wysiwyg');
 
@@ -28,16 +28,16 @@ export class WysiwygComponent extends ElementBase<string>  implements AfterViewI
     @ViewChild('editor') private editorEl: ElementRef;
     @ViewChildren('.ql-toolbar') private tollbar: QueryList<ElementRef>;
 
-    private quillEditor: any;
+    private editor: any;
 
     ngAfterViewInit() {
         this.initEditor();
     }
 
     public get focus(): boolean {
-        return  this.quillEditor !== undefined &&
-                typeof this.quillEditor.hasFocus === 'function' &&
-                this.quillEditor.hasFocus();
+        return  this.editor !== undefined &&
+                typeof this.editor.hasFocus === 'function' &&
+                this.editor.hasFocus();
     }
 
     @Output() change: EventEmitter<string> = new EventEmitter<string>();
@@ -120,30 +120,21 @@ export class WysiwygComponent extends ElementBase<string>  implements AfterViewI
      * Initialize or Reinitialize the editor.
      */
     private initEditor(): void {
-        if (this.editorEl !== undefined) {
-            // Clean up the toolbars
-            const toolbars: any[] = this.host.nativeElement.querySelectorAll('.ql-toolbar');
-            for (let toolbar of toolbars) {
-                toolbar.remove();
-            }
+        if (this.editorEl !== undefined && this.editor === undefined) {
+            console.dir(tinymce);
 
-            this.initValue = this._value;
-
-            // (Re)Initilaize the editor
-            this.quillEditor = new Quill(this.editorEl.nativeElement, {
-                modules: {
-                    toolbar: this._toolbar
+            tinymce.init({
+                target: this.editorEl.nativeElement,
+                plugins: ['link', 'paste', 'table'],
+                skin_url: 'assets/skins/lightgray',
+                setup: editor => {
+                    this.editor = editor;
+                    editor.on('keyup', () => {
+                        const content = editor.getContent();
+                        this.change.emit(content);
+                    });
                 },
-                theme: 'snow'
             });
-
-            this.quillEditor.on('text-change', this.onEdtiorChange);
         }
-    }
-
-
-    private onEdtiorChange = (delta, oldDelta, source) => {
-        this._value = this.quillEditor.root.innerHTML;
-        // this.change.emit(this._value);
     }
 }

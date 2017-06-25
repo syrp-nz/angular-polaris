@@ -4,9 +4,17 @@
             <plrsTextField></plrsTextField>
             <plrsTextField multiline></plrsTextField>
             <plrsTextField multiline="5"></plrsTextField>
+
         </plrsCard>
         <plrsCard title="Test text field" sectioned>
-            <plrsWysiwyg label="Test WYSIWYG"></plrsWysiwyg>
+            <plrsButton (click)="changeToolbar()">Change Toolbar</plrsButton>
+            <plrsWysiwyg label="Test WYSIWYG" [toolbar]="toolbarOpts" [value]="wysiwygText"></plrsWysiwyg>
         </plrsCard>
+
+        <plrsCard title="Test text field" sectioned>
+            <textarea [value]="wysiwygText"></textarea>
+        </plrsCard>
+
+
     </plrsSection>
 </plrsLayout>
