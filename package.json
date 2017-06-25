@@ -21,7 +21,9 @@
     "email": "maxime@syrp.co.nz"
   },
   "keywords": [
-    "angular", "shopify", "polaris"
+    "angular",
+    "shopify",
+    "polaris"
   ],
   "license": "MIT",
   "bugs": {
@@ -37,6 +39,7 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "core-js": "^2.4.1",
+    "quill": "^1.2.6",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },
@@ -48,6 +51,7 @@
     "@shopify/polaris": "^1.1.1",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
+    "@types/quill": "0.0.30",
     "codelyzer": "~2.0.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
@@ -63,8 +67,8 @@
     "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "ngx-quill": "^1.3.1",
     "protractor": "~5.1.0",
+    "quill": "^1.2.6",
     "rollup": "^0.41.6",
     "run-sequence": "^1.2.2",
     "ts-node": "~2.0.0",
