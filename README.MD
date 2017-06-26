@@ -78,14 +78,19 @@ The package doesn't ship with Polaris css, so you need to manually include it in
 To generate all `*.js`, `*.d.ts` and `*.metadata.json` files:
 
 ```bash
-$ npm run build
+$ npm run publish
 ```
 
-To lint all `*.ts` files:
+## Wysiwyg Component
 
-```bash
-$ npm run lint
+The library comes with a `plrsWysiwyg` component that is not natively included in the Shopify Polaris React library. This component is built on top
+of (QuillJs)[https://quilljs.com]. If you want to use the WYSIWYG component, you need to add a reference to `"../node_modules/quill/dist/quill.js"`
+under `scripts` in your `.angular-cli.json` file and to load the Quill Snow Theme css in your `index.html` file with:
+```html
+<link href="https://cdn.quilljs.com/1.2.2/quill.snow.css" rel="stylesheet">
 ```
+
+The Angular implementation was done by adapting code from (NGX-Quill)[https://github.com/KillerCodeMonkey/ngx-quill].
 
 ## License
 
