@@ -1,20 +1,19 @@
 <plrsLayout>
     <plrsSection>
         <plrsCard title="Test text field" sectioned>
-            <plrsTextField></plrsTextField>
-            <plrsTextField multiline></plrsTextField>
+            <plrsTextField label="Simple Text field" [(ngModel)]="simpleTextField"></plrsTextField>
+            {{ simpleTextField }}
+            <plrsTextField multiline [(ngModel)]="wysiwygText"></plrsTextField>
             <plrsTextField multiline="5"></plrsTextField>
 
         </plrsCard>
         <plrsCard title="Test text field" sectioned>
             <plrsButton (click)="changeToolbar()">Change Toolbar</plrsButton>
-            <plrsWysiwyg label="Test WYSIWYG" [toolbar]="toolbarOpts" [value]="wysiwygText"></plrsWysiwyg>
         </plrsCard>
 
-        <plrsCard title="Test text field" sectioned>
-            <textarea [value]="wysiwygText"></textarea>
+        <plrsCard title="NGX Quill editor" sectioned>
+            <plrsWysiwyg label="NGX Quill editor label" [(ngModel)]="wysiwygText" [toolbarOpts]="simpleToolbar"></plrsWysiwyg>
         </plrsCard>
-
 
     </plrsSection>
 </plrsLayout>

@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     title = 'app works!';
+    simpleTextField = "Bonjour monde";
 
     complexToolbar = [
         ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
