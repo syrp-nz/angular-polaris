@@ -1,10 +1,10 @@
-<plrsLabelled [label]="label" [id]="id" [helpText]="helpText" [error]="model?.dirty && (invalid | async) && (failures | async)">
+<plrsLabelled
+    [label]="label"
+    [id]="id"
+    [helpText]="helpText"
+    [error]="model?.dirty && (invalid | async) && (failures | async)"
+    (click)="focusEditor()">
     <div class="Polaris-Wysiwyg">
-
-
-        <div #editor [innerHTML]="initValue"></div>
-
-
+        <ng-content select="[quill-editor-toolbar]"></ng-content>
     </div>
-
 </plrsLabelled>
