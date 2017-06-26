@@ -1,5 +1,5 @@
 <div class="Polaris-Labelled__LabelWrapper">
-    <plrsLabel [id]="id">{{ label }}</plrsLabel>
+    <plrsLabel [id]="id" (click)="onClick($event)">{{ label }}</plrsLabel>
 </div>
 <ng-content></ng-content>
 <div class="Polaris-Labelled__Error" *ngIf="error">

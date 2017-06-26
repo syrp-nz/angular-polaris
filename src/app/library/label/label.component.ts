@@ -13,6 +13,8 @@ import { AngularComplexAction } from '../types';
 })
 export class LabelComponent implements OnInit {
 
+    @Output() public click = new EventEmitter<any>();
+
     ngOnInit() { }
 
 
@@ -27,6 +29,10 @@ export class LabelComponent implements OnInit {
 
     get labelID() {
         return `${this.id}Label`;
+    }
+
+    private onClick(event: any) {
+        this.click.emit(event);
     }
 
 }

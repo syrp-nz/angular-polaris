@@ -25,5 +25,9 @@ export class LabelledComponent implements OnInit {
     @Input() children: string;
     @Input() labelHidden: boolean;
 
+    @Output() public click = new EventEmitter<any>();
+    private onClick(event: any) {
+        this.click.emit(event);
+    }
 
 }
