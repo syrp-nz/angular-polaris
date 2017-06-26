@@ -23,6 +23,8 @@ import { LayoutComponent, SectionedLayoutComponent } from './layout/layout.compo
 import { LayoutAnnotatedSectionComponent } from './layout/layout.annotated.section.component';
 import { SectionComponent } from './layout/section.component';
 
+import { PageComponent } from './page/page.component';
+
 import { ResourceListComponent } from './resource.list/resource.list.component';
 import { ResourceListItemComponent } from './resource.list/resource.list.item.component';
 
@@ -77,7 +79,8 @@ export * from './types';
         IconComponent,
         SpinnerComponent,
         VisuallyHiddenComponent,
-        WysiwygComponent
+        WysiwygComponent,
+        PageComponent,
     ],
     exports: [
         BannerComponent,
@@ -105,7 +108,8 @@ export * from './types';
         IconComponent,
         SpinnerComponent,
         VisuallyHiddenComponent,
-        WysiwygComponent
+        WysiwygComponent,
+        PageComponent,
     ]
 })
 export class AngularPolarisModule {
