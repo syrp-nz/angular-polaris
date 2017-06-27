@@ -21,17 +21,21 @@ The package is under active development, so beware. Polaris components are conve
 |---------------	|----------------------	|---------------	|
 | Badge           	| Beta                 	|               	|
 | Banner        	| Beta                 	|               	|
+| Breadcrumbs      	| Dev                 	|               	|
 | Button        	| Beta                 	|               	|
 | Card          	| Beta                 	|               	|
-| Icon          	| Beta                 	|               	|
+| Icon          	| Dev                 	|               	|
 | Label         	| Dev                 	|               	|
 | Labelled         	| Dev                 	|               	|
 | Layout        	| Beta                 	|               	|
+| Page          	| Dev                 	|               	|
+| Pagination       	| Dev                 	|               	|
 | Resource List 	| Dev                  	|               	|
 | Select         	| Dev                 	|               	|
 | Stack         	| Beta                 	|               	|
 | Textfield        	| Dev                 	|               	|
 | Thumbnail        	| Dev                 	|               	|
+| UnstyledLink     	| Dev                 	|               	|
 | Visually Hidden  	| Beta                 	|               	|
 
 ## Installation
