@@ -1,7 +1,11 @@
-    <div class="Polaris-Page__Header">
-        <div class="Polaris-Page__PrimaryAction"></div>
-    </div>
-
-    <div class="Polaris-Page__Content">
-        <ng-content></ng-content>
-    </div>
+<plrsPageHeader
+    [title]="title"
+    [icon]="icon"
+    [breadcrumbs]="breadcrumbs"
+    [secondaryActions]="secondaryActions"
+    [primaryAction]="primaryAction"
+    [pagination]="pagination">
+</plrsPageHeader>
+<div class="Polaris-Page__Content">
+    <ng-content></ng-content>
+</div>
