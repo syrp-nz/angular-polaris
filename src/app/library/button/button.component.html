@@ -1,4 +1,4 @@
-<a *ngIf="url && routerLink"
+<a *ngIf="routerLink"
     class="Polaris-Button {{innerClass}}"
     [routerLink]="routerLink"
     data-polaris-unstyled="true"
@@ -16,7 +16,7 @@
         </span>
     </span>
 </a>
-<a *ngIf="url && href"
+<a *ngIf="url"
     class="Polaris-Button {{innerClass}}"
     [href]="href"
     data-polaris-unstyled="true"
@@ -38,7 +38,7 @@
 <button
     type="button"
     class="Polaris-Button {{innerClass}}"
-    *ngIf="!url"
+    *ngIf="!routerLink && !url"
     (click)="onAction()"
     [ngClass]="ngClass()"
     [disabled]="disabled !== false"
