@@ -19,7 +19,12 @@ export class UnstyledLinkComponent {
         this.accessibilityLabel = action.accessibilityLabel;
         this.url = action.url;
         this.onAction = action.onAction;
-        this.routerLinkActive = action.routerLinkActive ? true : false;
+
+        if (action.routerLink) {
+            this.routerLink = action.routerLink;
+        }
+
+
         this.plain = action.plain ? true : false;
     }
 
@@ -65,7 +70,7 @@ export class UnstyledLinkComponent {
     /**
      * Hack as an Angular router link.
      */
-    @Input() routerLinkActive: boolean = false;
+    @Input() routerLink: string;
 
     @Input() inGroup: boolean = false;
 
@@ -94,22 +99,6 @@ export class UnstyledLinkComponent {
             'Polaris-Button--outline': this.outline !== false,
             'Polaris-Button--iconOnly': this.iconOnly !== false,
 
-        }
-    }
-
-    private get href() {
-        if (this.routerLinkActive === false) {
-            return this.url;
-        } else {
-            return false;
-        }
-    }
-
-    private get routerLink() {
-        if (this.routerLinkActive !== false) {
-            return this.url;
-        } else {
-            return false;
         }
     }
 
