@@ -1,0 +1,21 @@
+<plrsPage title="List of Angular Polaris Component" [breadcrumbs]="breadcrumbs">
+    <plrsLayout sectioned>
+        <plrsCard>
+            <plrsCardSection>
+                <plrsTextField #searchBox placeholder="Filter components" [(ngModel)]="service.filter"  type="text"  [prefix]="searchIcon"></plrsTextField>
+            </plrsCardSection>
+            <plrsResourceList>
+                <plrsResourceListItem *ngFor="let component of service.components"
+                    [attributeOne]="component.name"
+                    [attributeTwo]="component.link"
+                    [routerLink]="component.link"
+                    [badges]="[badge(component.status)]">
+                </plrsResourceListItem>
+            </plrsResourceList>
+        </plrsCard>
+    </plrsLayout>
+</plrsPage>
+
+<ng-template #searchIcon>
+    <plrsIcon source="search"></plrsIcon>
+</ng-template>
