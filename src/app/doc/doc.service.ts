@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Injectable()
 export class DocService {
@@ -26,6 +27,20 @@ export class DocService {
         },
     ];
 
+    constructor(private router: Router) {
+        this.router.events.subscribe(this.selectComponent);
+    }
+
+    private selectComponent = (routeChange: NavigationEnd) => {
+        let matches: RegExpMatchArray = routeChange.url.match(/doc\/(.*?)\/?$/);
+        if (matches) {
+            this.select(matches[1]);
+        } else {
+            this.selected = undefined;
+        }
+    }
+
+
     public get components(): PolarisComponent[] {
         return this._components.filter((component: PolarisComponent) => {
             return this.filter == '' || component.name.match(this.filter);
@@ -34,6 +49,17 @@ export class DocService {
 
     public filter: string = '';
 
+    public selected: PolarisComponent = undefined;
+
+    private select(componentLink: string) {
+        if (componentLink == 'list') {
+            this.selected = undefined;
+        } else {
+            this.selected = this._components.find((component: PolarisComponent) => {
+                return component.link == componentLink;
+            });
+        }
+    }
 }
 
 export interface PolarisComponent {

@@ -5,31 +5,31 @@ import { DocService } from './doc.service';
   templateUrl: 'doc.component.html',
 })
 export class DocComponent {
-    breadcrumbs = [
-        {
-            content: "Home",
-            routerLink: "/"
-        }
-    ];
-
-
 
     constructor(private service:DocService) {}
 
-    private badge(status: string) {
-        const statuses = {
-            'dev': 'warning',
-            'beta': 'info',
-            'completed': 'success',
-            'not started': 'default',
-        };
 
+    private get title(): string {
+        return this.service.selected == undefined ?
+            'List of Angular Polaris Component' :
+            this.service.selected.name;
+    }
 
-        return {
-            content: status,
-            status: statuses[status]
+    private get breadcrumbs(): any {
+        let crumb = [
+            {
+                content: "Home",
+                routerLink: "/"
+            }
+        ];
+
+        if (this.service.selected !== undefined) {
+            crumb.push({
+                content: 'Component list',
+                routerLink: '/doc'
+            });
         }
 
-
+        return crumb;
     }
 }
