@@ -1,6 +1,6 @@
 <plrsCard>
     <plrsCardSection>
-        <!-- <plrsTextField placeholder="Filter components" type="text"></plrsTextField> -->
+        <plrsTextField placeholder="Filter components" type="text" [(ngModel)]="service.filter"></plrsTextField>
     </plrsCardSection>
     <plrsResourceList>
         <plrsResourceListItem *ngFor="let component of service.components"

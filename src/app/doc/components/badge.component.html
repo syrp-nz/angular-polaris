@@ -1,7 +1,7 @@
 <plrsLayout>
     <plrsSection primary>
         <plrsCard sectioned title="Preview">
-            <plrsBadge [status]="status">{{ content }}</plrsBadge>
+            <plrsBadge [status]="status" [progress]="progress">{{ content }}</plrsBadge>
         </plrsCard>
 
         <codeCard [code]="code"></codeCard>
@@ -10,6 +10,9 @@
         <plrsCard sectioned title="Options">
             <plrsTextField label="Content" [(ngModel)]="content"></plrsTextField>
             <plrsSelect label="Status" [(ngModel)]="status" [options]="statusOptions"></plrsSelect>
+            <plrsSelect label="Progress" [(ngModel)]="progress" [options]="progressOptions"></plrsSelect>
         </plrsCard>
+        <metaComponent [component]="component"></metaComponent>
+
     </plrsSection>
 </plrsLayout>

@@ -8,12 +8,13 @@ export class DocService {
         {
             name: 'Badge',
             link: 'badge/badge.component',
-            status: 'dev'
+            status: 'beta',
+            docLink: 'images-and-icons/badge'
         },
         {
             name: 'Banner',
             link: 'banner/banner.component',
-            status: 'dev'
+            status: 'beta'
         },
         {
             name: 'Breadcrumbs',
@@ -32,7 +33,7 @@ export class DocService {
     }
 
     private selectComponent = (routeChange: NavigationEnd) => {
-        let matches: RegExpMatchArray = routeChange.url.match(/doc\/(.*?)\/?$/);
+        let matches: RegExpMatchArray = routeChange.url.match(/doc\/(.*?)\/?$/i);
         if (matches) {
             this.select(matches[1]);
         } else {
@@ -43,7 +44,7 @@ export class DocService {
 
     public get components(): PolarisComponent[] {
         return this._components.filter((component: PolarisComponent) => {
-            return this.filter == '' || component.name.match(this.filter);
+            return this.filter == '' || component.name.match(new RegExp(this.filter, 'i'));
         });
     }
 
@@ -52,11 +53,15 @@ export class DocService {
     public selected: PolarisComponent = undefined;
 
     private select(componentLink: string) {
-        if (componentLink == 'list') {
-            this.selected = undefined;
+        this.selected = this.getByLink(componentLink);
+    }
+
+    public getByLink(link: string): PolarisComponent {
+        if (link == 'list') {
+            return undefined;
         } else {
-            this.selected = this._components.find((component: PolarisComponent) => {
-                return component.link == componentLink;
+            return this._components.find((component: PolarisComponent) => {
+                return component.link == link;
             });
         }
     }
@@ -65,5 +70,6 @@ export class DocService {
 export interface PolarisComponent {
     name: string,
     link: string,
+    docLink?: string,
     status: 'dev'|'beta'|'completed'|'not started'
 }

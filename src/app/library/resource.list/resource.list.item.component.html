@@ -23,7 +23,7 @@
                 <div class="Polaris-ResourceList__AttributeTwo">{{ attributeTwo }}</div>
 
                 <div class="Polaris-ResourceList__Badge" *ngIf="badges">
-                    <plrsBadge *ngFor="let badge of badges" [status]="badge.status">{{ badge.content }}</plrsBadge>
+                    <plrsBadge *ngFor="let badge of badges" [status]="badge.status" [progress]="badge.progress">{{ badge.content }}</plrsBadge>
                 </div>
 
                 <div class="Polaris-ResourceList__AttributeThree">{{ attributeThree }}</div>

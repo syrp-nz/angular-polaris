@@ -4,11 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AngularPolarisModule } from '../library';
 
-import { BadgeComponent } from './badge.component';
+import { BadgeComponent } from './components/badge.component';
 import { DocComponent } from './doc.component';
-import { ListComponent } from './list.component';
 import { DocService } from './doc.service';
-import { CodeCardComponent } from './code.card.component';
+
+import { ListComponent } from './utilities/list.component';
+import { CodeCardComponent } from './utilities/code.card.component';
+import { MetaComponent } from './utilities/meta.component';
 
 const appRoutes: Routes = [
         { path: 'doc', component: DocComponent, children: [
@@ -31,7 +33,9 @@ const appRoutes: Routes = [
         DocComponent,
         ListComponent,
         CodeCardComponent,
-        BadgeComponent
+        MetaComponent,
+
+        BadgeComponent,
     ],
     exports: [ ],
     providers: [

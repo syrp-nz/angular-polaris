@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "predeploy:demo": "ng build --prod --base-href \"https://syrp-nz.github.io/angular-polaris/\"",
+    "deploy:demo": "ngh --branch=demo",
     "test": "ng test",
     "coverage": "ng test --sr -cc",
     "lint": "ng lint",

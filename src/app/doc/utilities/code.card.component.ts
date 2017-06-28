@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 @Component({
     selector: 'codeCard',
-    template: `<plrsCard sectioned title="Code">
+    template: `<plrsCard sectioned title="Angular Code">
         <pre><code>{{ code }}</code></pre>
     </plrsCard>`,
+    styles: ["plrscard {margin-top: 2rem;}"]
 })
 export class CodeCardComponent {
     @Input() public code = '';
