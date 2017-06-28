@@ -1,0 +1,15 @@
+<plrsLayout>
+    <plrsSection primary>
+        <plrsCard sectioned title="Preview">
+            <plrsBadge [status]="status">{{ content }}</plrsBadge>
+        </plrsCard>
+
+        <codeCard [code]="code"></codeCard>
+    </plrsSection>
+    <plrsSection secondary>
+        <plrsCard sectioned title="Options">
+            <plrsTextField label="Content" [(ngModel)]="content"></plrsTextField>
+            <plrsSelect label="Status" [(ngModel)]="status" [options]="statusOptions"></plrsSelect>
+        </plrsCard>
+    </plrsSection>
+</plrsLayout>
