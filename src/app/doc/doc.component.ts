@@ -6,16 +6,16 @@ import { DocService } from './doc.service';
 })
 export class DocComponent {
 
-    constructor(private service:DocService) {}
+    constructor(public service:DocService) {}
 
 
-    private get title(): string {
+    public get title(): string {
         return this.service.selected == undefined ?
             'List of Angular Polaris Component' :
             this.service.selected.name;
     }
 
-    private get breadcrumbs(): any {
+    public get breadcrumbs(): any {
         let crumb = [
             {
                 content: "Home",

@@ -28,11 +28,11 @@ export abstract class ElementBase<T> extends ValueAccessorBase<T> {
             (this.model.control);
     }
 
-    protected get invalid(): Observable<boolean> {
+    public get invalid(): Observable<boolean> {
         return this.validate().map(v => Object.keys(v || {}).length > 0);
     }
 
-    protected get failures(): Observable<Array<string>> {
+    public get failures(): Observable<Array<string>> {
 
         return this.validate().map(v => Object.keys(v).map(k => message(v, k)));
     }

@@ -32,14 +32,14 @@ export class BannerComponent implements OnInit {
      */
     @Input() title: string = '';
 
-    private id = getUniqueID();
+    public id = getUniqueID();
 
     private _icon : string;
 
     /**
      * Icon to display in the banner.
      */
-    @Input() get icon(): string {
+    @Input() public get icon(): string {
         if (this._icon) {
             return this._icon;
         } else {
@@ -57,7 +57,7 @@ export class BannerComponent implements OnInit {
             }
         }
     };
-    set icon(value: string) {
+    public set icon(value: string) {
         this._icon = value;
     }
 
@@ -82,7 +82,7 @@ export class BannerComponent implements OnInit {
     @Input() onDismiss: () => any;
 
 
-    private get iconColor(): string {
+    public get iconColor(): string {
         switch (this.status) {
             case 'success':
                 return 'greenDark';

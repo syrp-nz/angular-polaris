@@ -17,14 +17,15 @@ export class IconComponent implements OnInit {
 
     ngOnInit() { }
 
-    @Input() source: string;
+    @Input() public source: string;
 
     private _color: string = '';
+
     @Input()
-    get color(): string {
+    public get color(): string {
         return this._color;
     }
-    set color(value: string) {
+    public set color(value: string) {
         if (this._color != '') {
             this.el.nativeElement.classList.remove('Polaris-Icon--color' + this.capitalizeFirstLetter(this._color))
         }
@@ -40,8 +41,8 @@ export class IconComponent implements OnInit {
     }
 
 
-    @Input() backdrop : boolean = false;
-    @Input() accessibilityLabel;
+    @Input() public backdrop : boolean = false;
+    @Input() public accessibilityLabel: string;
 
     constructor(private el: ElementRef) { }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DocService, PolarisComponent } from '../doc.service';
 
 const STATUSES = {
@@ -18,20 +18,16 @@ const PROGRESSES = {
 @Component({
   templateUrl: 'list.component.html',
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
 
-    constructor(protected service: DocService) {}
+    constructor(public service: DocService) {}
 
-    private badge(status: string) {
+    public badge(status: string) {
         return {
             content: status,
             status: STATUSES[status],
             progress: STATUSES[status]
         }
-    }
-
-    ngOnInit() {
-
     }
 
 }

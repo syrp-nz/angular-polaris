@@ -35,7 +35,7 @@ export class ResizerComponent implements OnInit, OnChanges {
     /**
      * Dummy content for building the minimum line object
      */
-    private get minimumLineContent(): string {
+    public get minimumLineContent(): string {
         return " \n".repeat(Math.max(1, this.minimumLines));
     }
 

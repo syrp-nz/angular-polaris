@@ -27,11 +27,11 @@ export class LabelComponent implements OnInit {
     @Input() action: AngularComplexAction;
     @Input() hidden: boolean;
 
-    get labelID() {
+    public get labelID() {
         return `${this.id}Label`;
     }
 
-    private onClick(event: any) {
+    public onClick(event: any) {
         this.click.emit(event);
     }
 

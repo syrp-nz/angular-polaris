@@ -20,7 +20,7 @@ export class BreadcrumbsComponent implements OnInit, AfterContentInit {
 
     }
 
-    private get action(): AngularComplexAction {
+    public get action(): AngularComplexAction {
         if (this.breadcrumbs && this.breadcrumbs.length > 0) {
             return this.breadcrumbs[this.breadcrumbs.length - 1];
         }

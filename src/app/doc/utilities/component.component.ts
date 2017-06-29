@@ -3,7 +3,7 @@ import { DocService, PolarisComponent } from '../doc.service';
 
 export abstract class ComponentComponent {
 
-    protected component: PolarisComponent;
+    public component: PolarisComponent;
     protected abstract componentLink;
 
     constructor(protected service: DocService) {

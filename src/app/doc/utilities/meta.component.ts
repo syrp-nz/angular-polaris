@@ -13,9 +13,9 @@ import { environment } from '../../../environments/environment';
     styles: ["plrscard {margin-top: 2rem;}"]
 })
 export class MetaComponent {
-    @Input() public component: PolarisComponent;
+    @Input() component: PolarisComponent;
 
-    private github = environment.repo;
+    github = environment.repo;
 
     ngOnInit() {
         console.dir(this.component);

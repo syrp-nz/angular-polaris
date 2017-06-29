@@ -40,15 +40,15 @@ export class BadgeComponent implements OnInit {
     /**
      * Title content for the card.
      */
-    @Input() status: Status = '';
+    @Input() public status: Status = '';
 
-    @Input() progress: Status = '';
+    @Input() public progress: Status = '';
 
-    private get progressLabel(): string {
+    public get progressLabel(): string {
         return PROGRESS_LABELS[this.progress] ? PROGRESS_LABELS[this.progress] : '';
     }
 
-    private get statusLabel(): string {
+    public get statusLabel(): string {
         return STATUS_LABELS[this.status] ? STATUS_LABELS[this.status] : '';
     }
 }

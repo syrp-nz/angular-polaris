@@ -9,9 +9,9 @@ export class BadgeComponent extends ComponentComponent {
 
     protected componentLink: string = 'badge/badge.component';
 
-    @Input() private content:string = 'Hello world';
-    @Input() private status:string|false = '';
-    @Input() private progress:string|false = '';
+    @Input() public content:string = 'Hello world';
+    @Input() public status:string|false = '';
+    @Input() public progress:string|false = '';
 
     statusOptions = ['', 'default', 'success', 'warning', 'attention'];
 
@@ -21,7 +21,7 @@ export class BadgeComponent extends ComponentComponent {
         super(service);
     }
 
-    private get code(): string {
+    public get code(): string {
         const status = this.nullableAttr('status');
         const progress = this.nullableAttr('progress');
 

@@ -4,6 +4,6 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
-  repo: 'https://github.com/syrp-nz/angular-polaris/'
+    production: false,
+    repo: 'https://github.com/syrp-nz/angular-polaris/'
 };
