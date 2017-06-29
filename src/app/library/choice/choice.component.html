@@ -1,0 +1,13 @@
+<label class="Polaris-Choice" [attr.for]="id" [class.Polaris-Choice--labelHidden]="labelHidden">
+    <div class="Polaris-Choice__Control">
+        <ng-content></ng-content>
+    </div>
+    <div class="Polaris-Choice__Label">{{ label }}</div>
+    <div *ngIf="error || helpText" class="Polaris-Choice__Descriptions">
+        <div *ngIf="error" class="Polaris-Choice__Error">
+            <div class="Polaris-Choice__ErrorIcon"><plrsIcon source="alert"></plrsIcon></div>
+            {{ error }}
+        </div>
+        <div *ngIf="helpText" class="Polaris-Choice__HelpText">{{ helpText }}</div>
+    </div>
+</label>
