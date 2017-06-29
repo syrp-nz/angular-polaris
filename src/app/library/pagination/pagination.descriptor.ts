@@ -5,4 +5,6 @@ export interface PaginationDescriptor {
   previousURL?: string,
   onNext?(): void,
   onPrevious?(): void,
+  previousRouterLink?: string,
+  nextRouterLink?: string,
 }
