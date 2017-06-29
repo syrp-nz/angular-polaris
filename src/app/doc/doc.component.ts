@@ -13,7 +13,7 @@ export class DocComponent {
     get title(): string {
         return this.service.selected == undefined ?
             'List of Angular Polaris Component' :
-            this.service.selected.name;
+            `${this.service.selected.name} component`;
     }
 
     get breadcrumbs(): any {

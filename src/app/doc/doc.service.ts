@@ -22,6 +22,11 @@ export class DocService {
             status: 'dev'
         },
         {
+            name: 'Choice',
+            link: 'choice/choice.component',
+            status: 'dev'
+        },
+        {
             name: 'Page',
             link: 'page/page.component',
             status: 'dev'

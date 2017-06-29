@@ -3,17 +3,19 @@ import { DocService, PolarisComponent } from '../doc.service';
 import { ComponentComponent } from '../utilities/component.component';
 
 @Component({
-    templateUrl: 'badge.component.html'
+    templateUrl: 'banner.component.html'
 })
-export class BadgeComponent extends ComponentComponent {
+export class BannerComponent extends ComponentComponent {
 
-    protected componentLink: string = 'badge/badge.component';
+    protected componentLink: string = 'banner/banner.component';
 
-    @Input() public content:string = 'Hello world';
-    @Input() public status:string|false = '';
-    @Input() public progress:string|false = '';
+    content:string = 'Hello world';
+    title:string = '';
+    icon:string = '';
+    status:string|false = '';
+    progress:string|false = '';
 
-    statusOptions = ['', 'default', 'success', 'info', 'warning', 'attention'];
+    statusOptions = ['', 'default', 'success', 'info', 'warning', 'critical'];
 
     progressOptions = ['', 'incomplete', 'partiallyComplete', 'complete'];
 
