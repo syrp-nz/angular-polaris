@@ -13,7 +13,11 @@ import { ButtonComponent } from './button/button.component';
 import { ButtonGroupComponent } from './button/button.group.component';
 
 import { CardComponent } from './card/card.component';
+
 import { CardSectionComponent } from './card/card.section.component';
+
+import { ChoiceComponent } from './choice/choice.component';
+
 import { HeaderComponent } from './card/header.component';
 
 import { IconComponent } from './icon/icon.component';
@@ -68,6 +72,7 @@ export * from './types';
         ButtonGroupComponent,
         CardComponent,
         CardSectionComponent,
+        ChoiceComponent,
         LayoutComponent,
         SectionComponent,
         SectionedLayoutComponent,
@@ -101,6 +106,7 @@ export * from './types';
         ButtonGroupComponent,
         CardComponent,
         CardSectionComponent,
+        ChoiceComponent,
         LayoutComponent,
         SectionComponent,
         SectionedLayoutComponent,
