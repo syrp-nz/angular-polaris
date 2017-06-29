@@ -52,6 +52,26 @@ export class DocService {
 
     public selected: PolarisComponent = undefined;
 
+    public get previous(): PolarisComponent {
+        const components = this.components;
+        for (let i = 0 ; i < components.length; i++) {
+            if (components[i] === this.selected) {
+                return components[i-1];
+            }
+        }
+        return undefined;
+    }
+
+    public get next(): PolarisComponent {
+        const components = this.components;
+        for (let i = 0 ; i < components.length; i++) {
+            if (components[i] === this.selected) {
+                return components[i+1];
+            }
+        }
+        return undefined;
+    }
+
     private select(componentLink: string) {
         this.selected = this.getByLink(componentLink);
     }

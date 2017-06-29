@@ -13,9 +13,6 @@ export abstract class ComponentComponent {
 
     ngOnInit() {
         this.component = this.service.getByLink(this.componentLink);
-        console.dir(this);
-        console.dir(this.componentLink);
-        console.dir(this.component);
     }
 
     /**
