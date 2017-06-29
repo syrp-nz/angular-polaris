@@ -16,6 +16,7 @@ import { CardComponent } from './card/card.component';
 
 import { CardSectionComponent } from './card/card.section.component';
 
+import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ChoiceComponent } from './choice/choice.component';
 
 import { HeaderComponent } from './card/header.component';
@@ -97,6 +98,7 @@ export * from './types';
         PageHeaderComponent,
         UnstyledLinkComponent,
         PaginationComponent,
+        CheckboxComponent,
     ],
     exports: [
         BannerComponent,
@@ -130,7 +132,8 @@ export * from './types';
         PageComponent,
         PageHeaderComponent,
         UnstyledLinkComponent,
-        PaginationComponent
+        PaginationComponent,
+        CheckboxComponent,
     ]
 })
 export class AngularPolarisModule {

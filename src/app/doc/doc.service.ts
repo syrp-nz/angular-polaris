@@ -22,6 +22,13 @@ export class DocService {
             status: 'dev'
         },
         {
+            name: 'Checkbox',
+            link: 'checkbox/checkbox.component',
+            status: 'dev',
+            docLink: 'forms/checkbox',
+            category: 'form'
+        },
+        {
             name: 'Choice',
             link: 'choice/choice.component',
             status: 'dev'
@@ -96,5 +103,6 @@ export interface PolarisComponent {
     name: string,
     link: string,
     docLink?: string,
-    status: 'dev'|'beta'|'completed'|'not started'
+    status: 'dev'|'beta'|'completed'|'not started',
+    category?: string,
 }

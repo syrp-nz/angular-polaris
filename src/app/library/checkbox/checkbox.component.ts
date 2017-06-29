@@ -19,10 +19,12 @@ export type Option = string | {
     selector: 'plrsCheckbox',
     templateUrl: 'checkbox.component.html',
     providers: [
-        {provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => SelectComponent), multi: true}
+        {provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => CheckboxComponent), multi: true}
     ],
+    host: {
+    }
 })
-export class CheckboxComponent extends ElementBase<string>  implements OnInit {
+export class CheckboxComponent extends ElementBase<boolean>  implements OnInit {
 
     ngOnInit() { }
 
@@ -52,7 +54,7 @@ export class CheckboxComponent extends ElementBase<string>  implements OnInit {
     @Input() name: string;
     @Input() id = getUniqueID();
     @Input() step: number;
-    @Input() value: string;
+    @Input() value: boolean;
 
 
     @ViewChild(NgModel) model: NgModel;

@@ -13,6 +13,7 @@ import { MetaComponent } from './utilities/meta.component';
 
 import { BadgeComponent } from './components/badge.component';
 import { BannerComponent } from './components/banner.component';
+import { CheckboxComponent } from './components/checkbox.component';
 import { ChoiceComponent } from './components/choice.component';
 
 const appRoutes: Routes = [
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
             { path: 'list', component: ListComponent },
             { path: 'badge/badge.component', component: BadgeComponent },
             { path: 'banner/banner.component', component: BannerComponent },
+            { path: 'checkbox/checkbox.component', component: CheckboxComponent },
             { path: 'choice/choice.component', component: ChoiceComponent },
     //   { path: 'specs', component: Specs }
         ]
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
 
         BadgeComponent,
         BannerComponent,
-        ChoiceComponent
+        ChoiceComponent,
+        CheckboxComponent
     ],
     exports: [ ],
     providers: [

@@ -1,0 +1,19 @@
+<plrsLayout>
+    <plrsSection primary>
+        <plrsCard sectioned title="Preview">
+            <plrsCheckbox [label]="label" [(ngModel)]="checked" [labelHidden]="labelHidden"></plrsCheckbox>
+        </plrsCard>
+
+        <codeCard [code]="code"></codeCard>
+    </plrsSection>
+    <plrsSection secondary>
+        <plrsCard sectioned title="Options">
+            <plrsTextField label="Label" [(ngModel)]="label"></plrsTextField>
+            <plrsCheckbox label="Label Hidden" [(ngModel)]="labelHidden"></plrsCheckbox>
+            <plrsTextField label="Id" [(ngModel)]="id"></plrsTextField>
+            <plrsTextField label="Help Text" [(ngModel)]="helpText"></plrsTextField>
+            <plrsTextField label="Error" [(ngModel)]="error"></plrsTextField>
+        </plrsCard>
+        <metaComponent [component]="component"></metaComponent>
+    </plrsSection>
+</plrsLayout>
