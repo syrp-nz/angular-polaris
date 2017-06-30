@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, TemplateRef } from '@angular/core';
 import { AngularComplexAction } from '../types';
 import { createUniqueIDFactory } from '@shopify/javascript-utilities/other';
 
@@ -16,7 +16,7 @@ const getUniqueID = createUniqueIDFactory('Banner');
         '[class.Polaris-Banner--statusInfo]': 'status == "info"',
         '[class.Polaris-Banner--statusWarning]': 'status == "warning"',
         '[class.Polaris-Banner--statusCritical]': 'status == "critical"',
-        '[class.Polaris-Banner--hasDismiss]': 'onDismiss',
+        '[class.Polaris-Banner--hasDismiss]': 'dimissible',
         '[attr.role]': '"banner " + status',
         '[attr.aria-labelledby]': 'id + "Heading"',
         '[attr.aria-describedby]': 'id + "Content"',
@@ -79,8 +79,15 @@ export class BannerComponent implements OnInit {
     /**
      * Displays a secondary action
      */
-    @Input() onDismiss: () => any;
+    @Input() onDismiss = (event: Event): void => {
+        this.dismiss.emit(this);
+    }
 
+    @Output() dismiss: EventEmitter<any> = new EventEmitter<any>();
+
+    public get dimissible(): boolean {
+        return this.dismiss.observers.length > 0;
+    }
 
     public get iconColor(): string {
         switch (this.status) {
