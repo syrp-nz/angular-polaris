@@ -15,7 +15,6 @@ export class CheckboxComponent extends ComponentComponent {
     name:string = 'hello';
     checked:boolean = false;
     helpText:string = '';
-    error:any = '';
     logChange: boolean = false;
     logFocus: boolean = false;
     logBlur: boolean = false;
