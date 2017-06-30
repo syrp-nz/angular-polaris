@@ -1,5 +1,6 @@
 export { AngularPolarisModule } from './AngularPolarisModule';
 
-import * as Pagination from './pagination';
+import * as Banner from './banner';
 import * as Checkbox from './checkbox';
-export { Checkbox, Pagination };
+import * as Pagination from './pagination';
+export { Banner, Checkbox, Pagination };

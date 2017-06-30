@@ -5,7 +5,7 @@ import { createUniqueIDFactory } from '@shopify/javascript-utilities/other';
 import { ElementBase} from '../form/element.base';
 
 
-const getUniqueID = createUniqueIDFactory('Select');
+const getUniqueID = createUniqueIDFactory('Checkbox');
 
 export type Option = string | {
   value: string,
