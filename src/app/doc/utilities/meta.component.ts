@@ -6,7 +6,7 @@ import { environment } from '../../../environments/environment';
     selector: 'metaComponent',
     template: `<plrsCard sectioned title="Code">
         <ul>
-            <li><a href="{{github}}tree/master/src/app/library/{{component.link}}.ts">View source code on GitHub</a></li>
+            <li><a href="{{github}}tree/master/src/app/library/{{component.path}}.ts">View source code on GitHub</a></li>
             <li *ngIf="component.docLink"><a href="https://polaris.shopify.com/components/{{component.docLink}}">View Polaris specs</a></li>
         </ul>
     </plrsCard>`,

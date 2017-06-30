@@ -21,14 +21,11 @@ const appRoutes: Routes = [
         ]
     }
 ];
-const declarations = [DocComponent, ListComponent, CodeCardComponent, MetaComponent];
-
 for (let meta of docData ) {
    appRoutes[0].children.push({
        path: meta.path,
        component: C[meta.name + 'Component']
    });
-   declarations.push(C[meta.name + 'Component']);
 }
 
 
@@ -39,7 +36,16 @@ for (let meta of docData ) {
         RouterModule.forChild(appRoutes),
         AngularPolarisModule
     ],
-    declarations: declarations,
+    declarations: [
+        DocComponent,
+        ListComponent,
+        CodeCardComponent,
+        MetaComponent,
+        C.BadgeComponent,
+        C.BannerComponent,
+        C.CheckboxComponent,
+        C.ChoiceComponent,
+    ],
     exports: [ ],
     providers: [
         DocService
