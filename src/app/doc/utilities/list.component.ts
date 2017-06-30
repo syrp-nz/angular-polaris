@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { DocService, PolarisComponent } from '../doc.service';
+import { DocService } from '../doc.service';
+import { PolarisComponent } from '../doc.data';
 
 const STATUSES = {
-    'dev': 'warning',
-    'beta': 'info',
+    'dev': 'attention',
+    'beta': 'warning',
     'completed': 'success',
-    'not started': 'default',
+    'not started': 'info',
 };
 
 const PROGRESSES = {
@@ -22,12 +23,17 @@ export class ListComponent {
 
     constructor(public service: DocService) {}
 
-    public badge(status: string) {
-        return {
-            content: status,
-            status: STATUSES[status],
-            progress: STATUSES[status]
-        }
+    public badge(component: PolarisComponent) {
+        return [
+            {
+                content: component.status,
+                status: STATUSES[component.status],
+                progress: PROGRESSES[component.status]
+            },
+            {
+                content: component.category,
+            },
+        ];
     }
 
 }

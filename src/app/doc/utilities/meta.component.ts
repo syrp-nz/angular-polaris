@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PolarisComponent } from '../doc.service';
+import { PolarisComponent } from '../doc.data';
 import { environment } from '../../../environments/environment';
 
 @Component({

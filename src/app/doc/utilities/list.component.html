@@ -6,8 +6,8 @@
         <plrsResourceListItem *ngFor="let component of service.components"
             [attributeOne]="component.name"
             [attributeTwo]="component.link"
-            routerLink="/doc/{{component.link}}"
-            [badges]="[badge(component.status)]">
+            routerLink="/doc/{{component.path}}"
+            [badges]="badge(component)">
         </plrsResourceListItem>
     </plrsResourceList>
 </plrsCard>

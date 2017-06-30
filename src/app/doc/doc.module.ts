@@ -11,23 +11,26 @@ import { ListComponent } from './utilities/list.component';
 import { CodeCardComponent } from './utilities/code.card.component';
 import { MetaComponent } from './utilities/meta.component';
 
-import { BadgeComponent } from './components/badge.component';
-import { BannerComponent } from './components/banner.component';
-import { CheckboxComponent } from './components/checkbox.component';
-import { ChoiceComponent } from './components/choice.component';
+import * as C from './components';
+import { docData } from './doc.data';
 
 const appRoutes: Routes = [
         { path: 'doc', component: DocComponent, children: [
             { path: '', redirectTo: 'list', pathMatch: 'full' },
             { path: 'list', component: ListComponent },
-            { path: 'badge/badge.component', component: BadgeComponent },
-            { path: 'banner/banner.component', component: BannerComponent },
-            { path: 'checkbox/checkbox.component', component: CheckboxComponent },
-            { path: 'choice/choice.component', component: ChoiceComponent },
-    //   { path: 'specs', component: Specs }
         ]
     }
 ];
+const declarations = [DocComponent, ListComponent, CodeCardComponent, MetaComponent];
+
+for (let meta of docData ) {
+   appRoutes[0].children.push({
+       path: meta.path,
+       component: C[meta.name + 'Component']
+   });
+   declarations.push(C[meta.name + 'Component']);
+}
+
 
 @NgModule({
     imports: [
@@ -36,17 +39,7 @@ const appRoutes: Routes = [
         RouterModule.forChild(appRoutes),
         AngularPolarisModule
     ],
-    declarations: [
-        DocComponent,
-        ListComponent,
-        CodeCardComponent,
-        MetaComponent,
-
-        BadgeComponent,
-        BannerComponent,
-        ChoiceComponent,
-        CheckboxComponent
-    ],
+    declarations: declarations,
     exports: [ ],
     providers: [
         DocService

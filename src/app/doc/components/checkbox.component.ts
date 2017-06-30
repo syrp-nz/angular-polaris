@@ -1,5 +1,6 @@
 import { Component, Input} from '@angular/core';
-import { DocService, PolarisComponent } from '../doc.service';
+import { DocService } from '../doc.service';
+import { PolarisComponent } from '../doc.data';
 import { ComponentComponent } from '../utilities/component.component';
 
 @Component({
@@ -7,7 +8,7 @@ import { ComponentComponent } from '../utilities/component.component';
 })
 export class CheckboxComponent extends ComponentComponent {
 
-    protected componentLink: string = 'checkbox/checkbox.component';
+    protected componentPath: string = 'checkbox/checkbox.component';
 
     label:string = 'Hello world';
     labelHidden:boolean = false;

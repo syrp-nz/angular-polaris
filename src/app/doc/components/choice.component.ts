@@ -1,5 +1,6 @@
 import { Component, Input} from '@angular/core';
-import { DocService, PolarisComponent } from '../doc.service';
+import { DocService } from '../doc.service';
+import { PolarisComponent } from '../doc.data';
 import { ComponentComponent } from '../utilities/component.component';
 
 @Component({
@@ -7,7 +8,7 @@ import { ComponentComponent } from '../utilities/component.component';
 })
 export class ChoiceComponent extends ComponentComponent {
 
-    protected componentLink: string = 'choice/choice.component';
+    protected componentPath: string = 'choice/choice.component';
 
     label:string = 'Hello world';
     id:string = 'SampleID123';

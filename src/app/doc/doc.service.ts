@@ -1,44 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
+import {docData, PolarisComponent} from './doc.data'
+
 @Injectable()
 export class DocService {
-
-    private _components: PolarisComponent[] = [
-        {
-            name: 'Badge',
-            link: 'badge/badge.component',
-            status: 'beta',
-            docLink: 'images-and-icons/badge'
-        },
-        {
-            name: 'Banner',
-            link: 'banner/banner.component',
-            status: 'beta'
-        },
-        {
-            name: 'Breadcrumbs',
-            link: 'breadcrumbs/breadcrumbs.component',
-            status: 'dev'
-        },
-        {
-            name: 'Checkbox',
-            link: 'checkbox/checkbox.component',
-            status: 'dev',
-            docLink: 'forms/checkbox',
-            category: 'form'
-        },
-        {
-            name: 'Choice',
-            link: 'choice/choice.component',
-            status: 'dev'
-        },
-        {
-            name: 'Page',
-            link: 'page/page.component',
-            status: 'dev'
-        },
-    ];
 
     constructor(private router: Router) {
         this.router.events.subscribe(this.selectComponent);
@@ -55,7 +21,7 @@ export class DocService {
 
 
     public get components(): PolarisComponent[] {
-        return this._components.filter((component: PolarisComponent) => {
+        return docData.filter((component: PolarisComponent) => {
             return this.filter == '' || component.name.match(new RegExp(this.filter, 'i'));
         });
     }
@@ -84,25 +50,17 @@ export class DocService {
         return undefined;
     }
 
-    private select(componentLink: string) {
-        this.selected = this.getByLink(componentLink);
+    private select(componentPath: string) {
+        this.selected = this.getByPath(componentPath);
     }
 
-    public getByLink(link: string): PolarisComponent {
-        if (link == 'list') {
+    public getByPath(path: string): PolarisComponent {
+        if (path == 'list') {
             return undefined;
         } else {
-            return this._components.find((component: PolarisComponent) => {
-                return component.link == link;
+            return docData.find((component: PolarisComponent) => {
+                return component.path == path;
             });
         }
     }
-}
-
-export interface PolarisComponent {
-    name: string,
-    link: string,
-    docLink?: string,
-    status: 'dev'|'beta'|'completed'|'not started',
-    category?: string,
 }

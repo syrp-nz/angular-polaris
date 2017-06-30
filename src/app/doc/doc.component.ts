@@ -41,12 +41,12 @@ export class DocComponent {
         let pagination: Pagination.PaginationDescriptor = {};
         if (previous) {
             pagination.hasPrevious = true;
-            pagination.previousRouterLink = '/doc/' + previous.link;
+            pagination.previousRouterLink = '/doc/' + previous.path;
         }
 
         if (next) {
             pagination.hasNext = true;
-            pagination.nextRouterLink = '/doc/' + next.link;
+            pagination.nextRouterLink = '/doc/' + next.path;
         }
 
         return pagination;

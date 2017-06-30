@@ -1,10 +1,11 @@
 import { Component, OnInit} from '@angular/core';
-import { DocService, PolarisComponent } from '../doc.service';
+import { DocService } from '../doc.service';
+import { PolarisComponent } from '../doc.data';
 
 export abstract class ComponentComponent {
 
     public component: PolarisComponent;
-    protected abstract componentLink;
+    protected abstract componentPath;
 
     constructor(protected service: DocService) {
 
@@ -12,7 +13,7 @@ export abstract class ComponentComponent {
     }
 
     ngOnInit() {
-        this.component = this.service.getByLink(this.componentLink);
+        this.component = this.service.getByPath(this.componentPath);
     }
 
     /**
