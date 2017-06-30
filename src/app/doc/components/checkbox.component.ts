@@ -11,26 +11,30 @@ export class CheckboxComponent extends ComponentComponent {
 
     label:string = 'Hello world';
     labelHidden:boolean = false;
-    id:string = 'SampleID123';
+    id:string = '';
+    name:string = 'hello';
+    checked:boolean = false;
     helpText:string = '';
     error:any = '';
-    checked: boolean = true;
+    logChange: boolean = false;
+    logFocus: boolean = false;
+    logBlur: boolean = false;
 
     constructor(protected service: DocService) {
         super(service);
     }
 
     public get code(): string {
-        const status = this.nullableAttr('status');
-        const progress = this.nullableAttr('progress');
+        const label = this.nullableAttr('label');
+        const labelHidden = this.labelHidden ? "\n    [labelHidden]=\"labelHidden\"" : "";
+        const helpText = this.nullableAttr('helpText');
+        const id = this.nullableAttr('id');
+        const change = this.eventAttr('change');
+        const focus = this.eventAttr('focus');
+        const blur = this.eventAttr('blur');
 
-return `<plrsChoice
-    [label]="label"
-    [id]="id"
-    [helpText]="helpText"
-    [error]="error">
-    <input type="checkbox" [attr.id]="id" />
-</plrsChoice>`;
+        return `<plrsCheckbox${label}${labelHidden}${helpText}${id}
+    [(ngModel)]="model.BooleanVariable"${change}${focus}${blur}></plrsCheckbox>`;
     }
 
 }

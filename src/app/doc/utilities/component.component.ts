@@ -24,4 +24,28 @@ export abstract class ComponentComponent {
         return this[attr] != "" ? `\n    [${attr}]="${this[attr]}"` : '';
     }
 
+    /**
+     * Build an optional attribute for the Angular code preview
+     * @param  {string} attr [description]
+     * @return {string}      [description]
+     */
+    protected eventAttr(eventName: string): string {
+        const eventUC = this.capitalizeFirstLetter(eventName);
+        return this['log' + eventUC] ? `\n    (${eventName})="on${eventUC}($event)"` : '';
+    }
+
+    private capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    eventLog(event: any, name: string = ''):void {
+        if (name) {
+            console.log(`Event: ${name}`);
+        }
+
+        console.dir(event);
+    }
+
+    clearConsole = {content: 'Clear console', onAction: console.clear};
+
 }

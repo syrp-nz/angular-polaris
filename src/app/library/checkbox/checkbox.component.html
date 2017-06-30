@@ -3,34 +3,19 @@
     [labelHidden]="labelHidden"
     [id]="id"
     [helpText]="helpText"
-    [error]="model.dirty && (invalid | async) && (failures | async)">
+    [error]="error ? error : model.dirty && (invalid | async) && (failures | async)">
     <div class="Polaris-Checkbox">
         <input
             type="checkbox"
-            [id]="id"
-            [name]="name"
+            [attr.id]="id"
+            [attr.name]="name"
             class="Polaris-Checkbox__Input" aria-invalid="false" value="on"
-            [(ngModel)]="value" />
+            [(ngModel)]="value"
+            (focus)="focus.emit($event)"
+            (blur)="blur.emit($event)"/>
         <div class="Polaris-Checkbox__Backdrop"></div>
         <div class="Polaris-Checkbox__Icon">
             <plrsIcon source="checkmark"></plrsIcon>
         </div>
     </div>
-
-    <!-- <select
-
-            class="Polaris-Select__Input"
-            attr.aria-labelledby="{{ id }}Label"
-            aria-invalid="false"
-            [(ngModel)]="value"
-            [required]="required !== false"
-            [disabled]="disabled !== false">
-            <option *ngIf="placeholder" [label]="placeholder" value="__placeholder__" disabled="" hidden=""></option>
-            <option *ngFor="let option of options"
-                [attr.key]="option.value ? option.value : option"
-                [value]="option.value ? option.value : option">
-                {{ option.label ? option.label : option }}
-            </option>
-        </select> -->
-
 </plrsChoice>

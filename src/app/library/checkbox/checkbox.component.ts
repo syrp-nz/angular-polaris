@@ -50,11 +50,21 @@ export class CheckboxComponent extends ElementBase<boolean>  implements OnInit {
     @Input() label: string;
     @Input() labelHidden: boolean;
     @Input() disabled: boolean = false;
+    @Input() checked: boolean = false;
     @Input() error: Error;
     @Input() name: string;
-    @Input() id = getUniqueID();
+
+    private _id = getUniqueID();
+
+    @Input()
+    get id(): string {return this._id;}
+    set id(value:string) { this._id = value ? value : this._id;}
+
     @Input() step: number;
     @Input() value: boolean;
+
+    @Output() focus: EventEmitter<FocusEvent> = new EventEmitter<FocusEvent>();
+    @Output() blur: EventEmitter<FocusEvent> = new EventEmitter<FocusEvent>();
 
 
     @ViewChild(NgModel) model: NgModel;
