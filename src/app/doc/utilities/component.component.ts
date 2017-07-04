@@ -22,7 +22,7 @@ export abstract class ComponentComponent {
      * @return {string}      [description]
      */
     protected nullableAttr(attr: string): string {
-        return this[attr] != "" ? `\n    [${attr}]="${this[attr]}"` : '';
+        return this[attr] != "" ? this.indent(`${attr}="${this[attr]}"`) : '';
     }
 
     /**
@@ -32,11 +32,15 @@ export abstract class ComponentComponent {
      */
     protected eventAttr(eventName: string): string {
         const eventUC = this.capitalizeFirstLetter(eventName);
-        return this['log' + eventUC] ? `\n    (${eventName})="on${eventUC}($event)"` : '';
+        return this['log' + eventUC] ? this.indent(`(${eventName})="on${eventUC}($event)"`) : '';
     }
 
     private capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    protected indent(str: string): string {
+        return `\n    ${str}`;
     }
 
     eventLog(event: any, name: string = ''):void {
