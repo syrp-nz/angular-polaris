@@ -22,12 +22,12 @@ export class SpinnerComponent {
 
     @Input() onClick: {(): void} = () => {};
 
-    protected handleStep(step: number) {
+    public handleStep(step: number) {
         this.onChange(step);
         this.change.emit(step);
     }
 
-    @HostListener('click') protected handleClick() {
+    @HostListener('click') public handleClick() {
         this.onClick();
     }
 

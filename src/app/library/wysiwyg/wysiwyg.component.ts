@@ -28,7 +28,10 @@ import {
 
 import * as Quill from 'quill';
 import { AngularComplexAction } from '../types';
+import { createUniqueIDFactory } from '@shopify/javascript-utilities/other';
 
+
+const getUniqueID = createUniqueIDFactory('Wysiwyg');
 
 /**
  * Componenent for rendering a WYSIWYG
@@ -81,6 +84,8 @@ export class WysiwygComponent implements AfterViewInit, ControlValueAccessor, On
         ]
     };
 
+    @Input() id = getUniqueID();
+    @Input() helpText: string;
     @Input() theme: string;
     @Input() modules: { [index: string]: Object };
     @Input() readOnly: boolean;
@@ -253,7 +258,7 @@ export class WysiwygComponent implements AfterViewInit, ControlValueAccessor, On
             this.quillEditor.hasFocus();
     }
 
-        private focusEditor() {
+        public focusEditor() {
         if (this.quillEditor !== undefined) {
             this.quillEditor.focus();
         }

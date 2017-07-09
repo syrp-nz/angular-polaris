@@ -22,7 +22,7 @@ export class ButtonComponent implements OnInit {
         this.accessibilityLabel = action.accessibilityLabel;
         this.url = action.url;
         this.onAction = action.onAction;
-        this.routerLinkActive = action.routerLinkActive ? true : false;
+        this.routerLink = action.routerLink ? action.routerLink : '';
         this.plain = action.plain ? true : false;
     }
 
@@ -38,6 +38,14 @@ export class ButtonComponent implements OnInit {
      * URL to link to
      */
     @Input() url:string;
+
+
+    /**
+     * Make this button an angular router link
+     */
+    @Input() routerLink:string;
+
+
 
     @Input() onAction = () => {
         this.click.emit(null);
@@ -64,11 +72,6 @@ export class ButtonComponent implements OnInit {
      * Display as disabled button.
      */
     @Input() plain: boolean = false;
-
-    /**
-     * Hack as an Angular router link.
-     */
-    @Input() routerLinkActive: boolean = false;
 
     @Input() inGroup: boolean = false;
 
@@ -97,23 +100,4 @@ export class ButtonComponent implements OnInit {
 
         }
     }
-
-    private get href() {
-        if (this.routerLinkActive === false) {
-            return this.url;
-        } else {
-            return false;
-        }
-    }
-
-    private get routerLink() {
-        if (this.routerLinkActive !== false) {
-            return this.url;
-        } else {
-            return false;
-        }
-    }
-
-
-
 }

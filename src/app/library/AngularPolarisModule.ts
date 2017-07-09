@@ -7,11 +7,18 @@ import { BadgeComponent } from './badge/badge.component';
 
 import { BannerComponent } from './banner/banner.component';
 
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+
 import { ButtonComponent } from './button/button.component';
 import { ButtonGroupComponent } from './button/button.group.component';
 
 import { CardComponent } from './card/card.component';
+
 import { CardSectionComponent } from './card/card.section.component';
+
+import { CheckboxComponent } from './checkbox/checkbox.component';
+import { ChoiceComponent } from './choice/choice.component';
+
 import { HeaderComponent } from './card/header.component';
 
 import { IconComponent } from './icon/icon.component';
@@ -22,6 +29,11 @@ import { LabelledComponent } from './labelled/labelled.component';
 import { LayoutComponent, SectionedLayoutComponent } from './layout/layout.component';
 import { LayoutAnnotatedSectionComponent } from './layout/layout.annotated.section.component';
 import { SectionComponent } from './layout/section.component';
+
+import { PageComponent } from './page/page.component';
+import { PageHeaderComponent } from './page/page.header.component';
+
+import { PaginationComponent } from './pagination/pagination.component';
 
 import { ResourceListComponent } from './resource.list/resource.list.component';
 import { ResourceListItemComponent } from './resource.list/resource.list.item.component';
@@ -41,6 +53,8 @@ import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 
 import { VisuallyHiddenComponent } from './visually.hidden/visually.hidden.component';
 
+import { UnstyledLinkComponent } from './unstyled.link/unstyled.link.component';
+
 import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
 
 export * from './types';
@@ -54,10 +68,12 @@ export * from './types';
     declarations: [
         BannerComponent,
         BadgeComponent,
+        BreadcrumbsComponent,
         ButtonComponent,
         ButtonGroupComponent,
         CardComponent,
         CardSectionComponent,
+        ChoiceComponent,
         LayoutComponent,
         SectionComponent,
         SectionedLayoutComponent,
@@ -77,15 +93,22 @@ export * from './types';
         IconComponent,
         SpinnerComponent,
         VisuallyHiddenComponent,
-        WysiwygComponent
+        WysiwygComponent,
+        PageComponent,
+        PageHeaderComponent,
+        UnstyledLinkComponent,
+        PaginationComponent,
+        CheckboxComponent,
     ],
     exports: [
         BannerComponent,
         BadgeComponent,
+        BreadcrumbsComponent,
         ButtonComponent,
         ButtonGroupComponent,
         CardComponent,
         CardSectionComponent,
+        ChoiceComponent,
         LayoutComponent,
         SectionComponent,
         SectionedLayoutComponent,
@@ -105,7 +128,12 @@ export * from './types';
         IconComponent,
         SpinnerComponent,
         VisuallyHiddenComponent,
-        WysiwygComponent
+        WysiwygComponent,
+        PageComponent,
+        PageHeaderComponent,
+        UnstyledLinkComponent,
+        PaginationComponent,
+        CheckboxComponent,
     ]
 })
 export class AngularPolarisModule {

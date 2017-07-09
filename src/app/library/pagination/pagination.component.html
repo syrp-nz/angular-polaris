@@ -1,0 +1,38 @@
+<a *ngIf="previousUrl"
+    [href]="previousUrl"
+    class="Polaris-Pagination__Button"
+    aria-label="Previous"
+    (click)="previous.emit($event)">
+    <plrsIcon source="arrowLeft"></plrsIcon>
+</a>
+<a *ngIf="previousRouterLink"
+    [routerLink]="previousRouterLink"
+    class="Polaris-Pagination__Button"
+    aria-label="Previous"
+    (click)="previous.emit($event)">
+    <plrsIcon source="arrowLeft"></plrsIcon>
+</a>
+<button *ngIf="!(previousUrl || previousRouterLink)"
+    class="Polaris-Pagination__Button" aria-label="Previous"
+    (click)="previous.emit($event)"
+    [disabled]="hasPrevious === false">
+    <plrsIcon source="arrowLeft"></plrsIcon>
+</button>
+<a *ngIf="nextUrl"
+    [href]="nextUrl"
+    class="Polaris-Pagination__Button" aria-label="Next"
+    (click)="next.emit($event)">
+    <plrsIcon source="arrowRight"></plrsIcon>
+</a>
+<a *ngIf="nextRouterLink"
+    [routerLink]="nextRouterLink"
+    class="Polaris-Pagination__Button" aria-label="Next"
+    (click)="next.emit($event)">
+    <plrsIcon source="arrowRight"></plrsIcon>
+</a>
+<button *ngIf="!(nextUrl || nextRouterLink)"
+    class="Polaris-Pagination__Button" aria-label="Previous"
+    (click)="next.emit($event)"
+    [disabled]="hasNext === false">
+    <plrsIcon source="arrowRight"></plrsIcon>
+</button>

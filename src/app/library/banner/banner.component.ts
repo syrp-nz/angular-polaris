@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, TemplateRef } from '@angular/core';
 import { AngularComplexAction } from '../types';
 import { createUniqueIDFactory } from '@shopify/javascript-utilities/other';
 
@@ -16,7 +16,7 @@ const getUniqueID = createUniqueIDFactory('Banner');
         '[class.Polaris-Banner--statusInfo]': 'status == "info"',
         '[class.Polaris-Banner--statusWarning]': 'status == "warning"',
         '[class.Polaris-Banner--statusCritical]': 'status == "critical"',
-        '[class.Polaris-Banner--hasDismiss]': 'onDismiss',
+        '[class.Polaris-Banner--hasDismiss]': 'dimissible',
         '[attr.role]': '"banner " + status',
         '[attr.aria-labelledby]': 'id + "Heading"',
         '[attr.aria-describedby]': 'id + "Content"',
@@ -32,14 +32,14 @@ export class BannerComponent implements OnInit {
      */
     @Input() title: string = '';
 
-    private id = getUniqueID();
+    public id = getUniqueID();
 
     private _icon : string;
 
     /**
      * Icon to display in the banner.
      */
-    @Input() get icon(): string {
+    @Input() public get icon(): string {
         if (this._icon) {
             return this._icon;
         } else {
@@ -57,7 +57,7 @@ export class BannerComponent implements OnInit {
             }
         }
     };
-    set icon(value: string) {
+    public set icon(value: string) {
         this._icon = value;
     }
 
@@ -79,10 +79,17 @@ export class BannerComponent implements OnInit {
     /**
      * Displays a secondary action
      */
-    @Input() onDismiss: () => any;
+    @Input() onDismiss = (event: Event): void => {
+        this.dismiss.emit(this);
+    }
 
+    @Output() dismiss: EventEmitter<any> = new EventEmitter<any>();
 
-    private get iconColor(): string {
+    public get dimissible(): boolean {
+        return this.dismiss.observers.length > 0;
+    }
+
+    public get iconColor(): string {
         switch (this.status) {
             case 'success':
                 return 'greenDark';

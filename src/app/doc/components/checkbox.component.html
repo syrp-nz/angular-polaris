@@ -1,0 +1,33 @@
+<plrsLayout>
+    <plrsSection primary>
+        <plrsCard sectioned title="Preview">
+            <plrsCheckbox
+                [label]="label"
+                [labelHidden]="labelHidden"
+                [id]="id ? id : false"
+                [name]="name ? name : false"
+                [helpText]="helpText"
+                (change)="logChange && eventLog($event, 'change')"
+                (focus)="logFocus && eventLog($event, 'focus')"
+                (blur)="logBlur && eventLog($event, 'blur')"
+                ></plrsCheckbox>
+        </plrsCard>
+
+        <codeCard [code]="code"></codeCard>
+    </plrsSection>
+    <plrsSection secondary>
+        <plrsCard sectioned title="Options">
+            <plrsTextField label="Label" [(ngModel)]="label"></plrsTextField>
+            <plrsCheckbox label="Label Hidden" [(ngModel)]="labelHidden"></plrsCheckbox>
+            <plrsTextField label="Id" [(ngModel)]="id"></plrsTextField>
+            <plrsTextField label="Name" [(ngModel)]="name"></plrsTextField>
+            <plrsTextField label="Help Text" [(ngModel)]="helpText"></plrsTextField>
+        </plrsCard>
+        <plrsCard sectioned title="Events console log" [primaryFooterAction]="clearConsole">
+            <plrsCheckbox label="change" [(ngModel)]="logChange"></plrsCheckbox>
+            <plrsCheckbox label="focus" [(ngModel)]="logFocus"></plrsCheckbox>
+            <plrsCheckbox label="blur" [(ngModel)]="logBlur"></plrsCheckbox>
+        </plrsCard>
+        <metaComponent [component]="component"></metaComponent>
+    </plrsSection>
+</plrsLayout>

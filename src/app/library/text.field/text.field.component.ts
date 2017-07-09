@@ -124,7 +124,7 @@ export class TextFieldComponent extends ElementBase<string>  implements OnInit {
         }
     }
 
-    private resizeTextarea(height: number) {
+    public resizeTextarea(height: number) {
         if (this.fieldTextarea !== undefined) {
             this.fieldTextarea.nativeElement.style.height = `${height}px`;
         }

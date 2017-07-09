@@ -1,0 +1,21 @@
+<plrsChoice
+    [label]="label"
+    [labelHidden]="labelHidden"
+    [id]="id"
+    [helpText]="helpText"
+    [error]="error ? error : model.dirty && (invalid | async) && (failures | async)">
+    <div class="Polaris-Checkbox">
+        <input
+            type="checkbox"
+            [attr.id]="id"
+            [attr.name]="name"
+            class="Polaris-Checkbox__Input" aria-invalid="false" value="on"
+            [(ngModel)]="value"
+            (focus)="focus.emit($event)"
+            (blur)="blur.emit($event)"/>
+        <div class="Polaris-Checkbox__Backdrop"></div>
+        <div class="Polaris-Checkbox__Icon">
+            <plrsIcon source="checkmark"></plrsIcon>
+        </div>
+    </div>
+</plrsChoice>

@@ -1,0 +1,22 @@
+<a *ngIf="routerLink"
+    class="Polaris-Link {{ classNames }}"
+    [routerLink]="routerLink"
+    data-polaris-unstyled="true"
+    [attr.aria-label]="accessibilityLabel"
+    [ngClass]="ngClass()"
+    [attr.disabled]="disabled !== false">
+     <ng-container *ngIf="(!routerLink) else elseTpl"></ng-container>
+    {{ children }}
+</a>
+<a *ngIf="!routerLink"
+    class="Polaris-Link {{ classNames }}"
+    [href]="url"
+    data-polaris-unstyled="true"
+    [attr.aria-label]="accessibilityLabel"
+    [ngClass]="ngClass()"
+    [attr.disabled]="disabled !== false"
+    [target]="external !== false ? _blank : ''">
+    <ng-container *ngIf="(routerLink) else elseTpl"></ng-container>
+    {{ children }}
+</a>
+<ng-template #elseTpl><ng-content></ng-content></ng-template>

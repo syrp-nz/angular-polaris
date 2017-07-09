@@ -1,0 +1,61 @@
+<div *ngIf="breadcrumbs || pagination" class="Polaris-Page__Navigation">
+    <plrsBreadcrumbs *ngIf="breadcrumbs && breadcrumbs.length > 0" [breadcrumbs]="breadcrumbs"></plrsBreadcrumbs>
+    <plrsPagination *ngIf="pagination"
+        [plain]="pagination.plain === true"
+        [nextUrl]="pagination.nextUrl"
+        [nextRouterLink]="pagination.nextRouterLink"
+        [hasNext]="pagination.hasNext === true"
+        [previousUrl]="pagination.previousUrl"
+        [previousRouterLink]="pagination.previousRouterLink"
+        [hasPrevious]="pagination.hasPrevious === true"></plrsPagination>
+</div>
+
+<h1 class="Polaris-DisplayText Polaris-DisplayText--sizeLarge">{{ title }}</h1>
+
+<div *ngIf="primaryAction || (secondaryActions)" class="Polaris-Page__Actions">
+    <plrsButton class="Polaris-Page__PrimaryAction" *ngIf="primaryAction" [fromAction]="primaryAction" primary></plrsButton>
+
+    <div class="Polaris-Page__SecondaryActions" *ngIf="secondaryActions">
+        <ng-container *ngFor="let action of secondaryActions">
+            <a *ngIf="action.routerLink"
+                class="Polaris-Page__Action"
+                [routerLink]="action.routerLink"
+                data-polaris-unstyled="true"
+                [attr.aria-label]="action.accessibilityLabel">
+                <span *ngIf="action.icon" class="Polaris-Page__ActionContent">
+                    <span class="Polaris-Page__ActionIcon">
+                        <plrsIcon [source]="action.icon"></plrsIcon>
+                    </span>
+                    {{ action.content }}
+                </span>
+                <ng-container *ngIf="!action.icon">{{ action.content }}</ng-container>
+            </a>
+            <a *ngIf="action.url"
+                class="Polaris-Page__Action"
+                [href]="url"
+                [attr.aria-label]="accessibilityLabel"
+                [target]="external !== false ? _blank : ''">
+                <span *ngIf="action.icon" class="Polaris-Page__ActionContent">
+                    <span class="Polaris-Page__ActionIcon">
+                        <plrsIcon [source]="action.icon"></plrsIcon>
+                    </span>
+                    {{ action.content }}
+                </span>
+                <ng-container *ngIf="!action.icon">{{ action.content }}</ng-container>
+            </a>
+            <button *ngIf="!action.url && !action.routerLink"
+                type="button"
+                class="Polaris-Page__Action"
+                (click)="onAction($event)"
+                [attr.aria-label]="accessibilityLabel">
+                <span *ngIf="action.icon" class="Polaris-Page__ActionContent">
+                    <span class="Polaris-Page__ActionIcon">
+                        <plrsIcon [source]="action.icon"></plrsIcon>
+                    </span>
+                    {{ action.content }}
+                </span>
+                <ng-container *ngIf="!action.icon">{{ action.content }}</ng-container>
+            </button>
+        </ng-container>
+    </div>
+</div>

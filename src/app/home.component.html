@@ -1,0 +1,25 @@
+<plrsPage title="Angular Polaris Project Demo" [primaryAction]="{content: 'Browse Documentation', routerLink: '/doc'}">
+    <plrsLayout>
+        <plrsSection>
+            <plrsCard title="About Angular Polaris" sectioned>
+                <p>Angular Polaris is a conversion of the <a href="https://polaris.shopify.com">Shopify Polaris</a> project from React to Angular.</p>
+                <p>The Angular Polaris library tries to implement the Shopify Polaris API as-is as much as possible. Exceptions are made when the Shopify Polaris breaks common Angular convention. Typical adaptation include:</p>
+
+                <ul>
+                    <li>Prefixing all component with <code>plrs</code>.</li>
+                    <li>Component event use the Angular <code>@Output</code> notation with <code>EventEmitter</code>. (e.g.: <code>&lt;plrsCheckbox (change)="onchange($event)"&gt;&lt;/plrsCheckbox&gt;</code>)</li>
+                    <li>Self-closing tags are not used because Angular doesn't support that syntax.</li>
+                </ul>
+
+            </plrsCard>
+            <plrsCard title="About this demo project" sectioned>
+                <p>The purpose of this project is to illustrate the component that are available and how to use them in your angular project.</p>
+            </plrsCard>
+            <plrsCard title="Learn more" sectioned>
+                <ul>
+                    <li><a href="https://github.com/syrp-nz/angular-polaris">View this project on GitHub</a></li>
+                </ul>
+            </plrsCard>
+        </plrsSection>
+    </plrsLayout>
+</plrsPage>
