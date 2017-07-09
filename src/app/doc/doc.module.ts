@@ -18,16 +18,13 @@ const appRoutes: Routes = [
         { path: 'doc', component: DocComponent, children: [
             { path: '', redirectTo: 'list', pathMatch: 'full' },
             { path: 'list', component: ListComponent },
+            { path: 'badge/badge.component', component: C.BadgeComponent },
+            { path: 'banner/banner.component', component: C.BannerComponent },
+            { path: 'checkbox/checkbox.component', component: C.CheckboxComponent },
+            { path: 'choice/choice.component', component: C.ChoiceComponent },
         ]
     }
 ];
-for (let meta of docData ) {
-   appRoutes[0].children.push({
-       path: meta.path,
-       component: C[meta.name + 'Component']
-   });
-}
-
 
 @NgModule({
     imports: [
