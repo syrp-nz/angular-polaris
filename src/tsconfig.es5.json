@@ -15,7 +15,17 @@
       "dom"
     ],
     "skipLibCheck": true,
-    "types": []
+    "types": [],
+    "paths": {
+      "@angular/core": [
+        "../node_modules/@angular/core"
+      ]
+    },
+
+    "importHelpers": true,
+    "newLine": "lf",
+    "sourceMap": true,
+    "inlineSources": true
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,

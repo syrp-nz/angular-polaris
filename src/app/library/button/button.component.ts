@@ -46,7 +46,6 @@ export class ButtonComponent implements OnInit {
     @Input() routerLink:string;
 
 
-
     @Input() onAction = () => {
         this.click.emit(null);
     };

@@ -6,13 +6,13 @@ import { AngularComplexAction } from '../types';
  */
 @Component({
     selector: 'plrsPagination',
-    templateUrl: `./pagination.component.html`,
+    templateUrl: './pagination.component.html',
     host: {
         '[class.Polaris-Pagination]': 'true',
         '[class.Polaris-Pagination--plain]': 'plain !== false'
     }
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent {
 
     @Input() public plain: boolean = false;
 
@@ -27,10 +27,4 @@ export class PaginationComponent implements OnInit {
 
     @Input() public nextRouterLink:string;
     @Input() public previousRouterLink:string;
-
-    /**
-     * Automatically add a sectionned to the layout.
-     */
-    ngOnInit() {
-    }
 }

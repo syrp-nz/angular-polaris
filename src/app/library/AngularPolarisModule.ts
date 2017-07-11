@@ -59,88 +59,56 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
 
 export * from './types';
 
+const components = [
+    BannerComponent,
+    BadgeComponent,
+    BreadcrumbsComponent,
+    ButtonComponent,
+    ButtonGroupComponent,
+    CardComponent,
+    CardSectionComponent,
+    ChoiceComponent,
+    LayoutComponent,
+    SectionComponent,
+    SectionedLayoutComponent,
+    StackComponent,
+    StackItemComponent,
+    HeaderComponent,
+    ResourceListComponent,
+    ResourceListItemComponent,
+    LabelComponent,
+    LabelledComponent,
+    TextFieldComponent,
+    ResizerComponent,
+    TemplateOrStringComponent,
+    SelectComponent,
+    ThumbnailComponent,
+    LayoutAnnotatedSectionComponent,
+    IconComponent,
+    SpinnerComponent,
+    VisuallyHiddenComponent,
+    WysiwygComponent,
+    PageComponent,
+    PageHeaderComponent,
+    UnstyledLinkComponent,
+    PaginationComponent,
+    CheckboxComponent,
+];
+
 @NgModule({
     imports: [
         CommonModule,
         RouterModule,
         FormsModule,
     ],
-    declarations: [
-        BannerComponent,
-        BadgeComponent,
-        BreadcrumbsComponent,
-        ButtonComponent,
-        ButtonGroupComponent,
-        CardComponent,
-        CardSectionComponent,
-        ChoiceComponent,
-        LayoutComponent,
-        SectionComponent,
-        SectionedLayoutComponent,
-        StackComponent,
-        StackItemComponent,
-        HeaderComponent,
-        ResourceListComponent,
-        ResourceListItemComponent,
-        LabelComponent,
-        LabelledComponent,
-        TextFieldComponent,
-        ResizerComponent,
-        TemplateOrStringComponent,
-        SelectComponent,
-        ThumbnailComponent,
-        LayoutAnnotatedSectionComponent,
-        IconComponent,
-        SpinnerComponent,
-        VisuallyHiddenComponent,
-        WysiwygComponent,
-        PageComponent,
-        PageHeaderComponent,
-        UnstyledLinkComponent,
-        PaginationComponent,
-        CheckboxComponent,
-    ],
-    exports: [
-        BannerComponent,
-        BadgeComponent,
-        BreadcrumbsComponent,
-        ButtonComponent,
-        ButtonGroupComponent,
-        CardComponent,
-        CardSectionComponent,
-        ChoiceComponent,
-        LayoutComponent,
-        SectionComponent,
-        SectionedLayoutComponent,
-        StackComponent,
-        StackItemComponent,
-        HeaderComponent,
-        ResourceListComponent,
-        ResourceListItemComponent,
-        LabelComponent,
-        LabelledComponent,
-        TextFieldComponent,
-        ResizerComponent,
-        TemplateOrStringComponent,
-        SelectComponent,
-        ThumbnailComponent,
-        LayoutAnnotatedSectionComponent,
-        IconComponent,
-        SpinnerComponent,
-        VisuallyHiddenComponent,
-        WysiwygComponent,
-        PageComponent,
-        PageHeaderComponent,
-        UnstyledLinkComponent,
-        PaginationComponent,
-        CheckboxComponent,
-    ]
+    declarations: components,
+    exports: components
 })
 export class AngularPolarisModule {
-  // static forRoot(): ModuleWithProviders {
-  //   return {
-  //     ngModule: SampleModule,
-  //     providers: [SampleService]
-  //   };
-  // }
+    // static forRoot(): ModuleWithProviders {
+    //     return {
+    //         ngModule: AngularPolarisModule,
+    //         providers: []
+    //     };
+    // }
 }

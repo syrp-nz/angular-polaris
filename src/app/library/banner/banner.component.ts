@@ -76,13 +76,6 @@ export class BannerComponent implements OnInit {
      */
     @Input() secondaryAction: AngularComplexAction;
 
-    /**
-     * Displays a secondary action
-     */
-    @Input() onDismiss = (event: Event): void => {
-        this.dismiss.emit(this);
-    }
-
     @Output() dismiss: EventEmitter<any> = new EventEmitter<any>();
 
     public get dimissible(): boolean {

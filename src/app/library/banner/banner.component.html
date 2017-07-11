@@ -1,4 +1,4 @@
-<div class="Polaris-Banner__Dismiss" *ngIf="dimissible"><plrsButton iconOnly plain icon="cancelSmall" [onAction]="onDismiss" accessibilityLabel="Dismiss notification"></plrsButton></div>
+<div class="Polaris-Banner__Dismiss" *ngIf="dimissible"><plrsButton iconOnly plain icon="cancelSmall" (click)="dismiss.emit()" accessibilityLabel="Dismiss notification"></plrsButton></div>
 <div class="Polaris-Banner__Ribbon">
     <plrsIcon [source]="icon" backdrop [color]="iconColor"></plrsIcon>
 </div>
