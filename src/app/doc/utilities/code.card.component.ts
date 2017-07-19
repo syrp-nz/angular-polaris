@@ -4,7 +4,10 @@ import { Component, Input } from '@angular/core';
     template: `<plrsCard sectioned title="Angular Code">
         <pre><code>{{ code }}</code></pre>
     </plrsCard>`,
-    styles: ["plrscard {margin-top: 2rem;}"]
+    styles: [
+        "plrscard {margin-top: 2rem;}",
+        "pre {overflow: auto;}"
+    ]
 })
 export class CodeCardComponent {
     @Input() public code = '';
