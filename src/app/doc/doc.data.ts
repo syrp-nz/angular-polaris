@@ -22,6 +22,12 @@ export const docData: PolarisComponent[] = [
         category: 'feedback',
     },
     {
+        name: 'Breadcrumbs',
+        path: 'breadcrumbs/breadcrumbs.component',
+        status: 'beta',
+        category: 'system',
+    },
+    {
         name: 'Checkbox',
         path: 'checkbox/checkbox.component',
         status: 'dev',

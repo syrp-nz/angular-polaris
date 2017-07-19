@@ -22,6 +22,7 @@ const appRoutes: Routes = [
             { path: 'banner/banner.component', component: C.BannerComponent },
             { path: 'checkbox/checkbox.component', component: C.CheckboxComponent },
             { path: 'choice/choice.component', component: C.ChoiceComponent },
+            { path: 'breadcrumbs/breadcrumbs.component', component: C.BreadcrumbsComponent },
         ]
     }
 ];
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
         MetaComponent,
         C.BadgeComponent,
         C.BannerComponent,
+        C.BreadcrumbsComponent,
         C.CheckboxComponent,
         C.ChoiceComponent,
     ],
