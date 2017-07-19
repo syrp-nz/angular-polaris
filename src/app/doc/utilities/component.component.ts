@@ -39,8 +39,14 @@ export abstract class ComponentComponent {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    protected indent(str: string): string {
-        return `\n    ${str}`;
+    protected indent(str: string, count:number = 1): string {
+        let indented: string = "\n";
+        while (count > 0) {
+            indented += "    ";
+            count--;
+        }
+        indented += str;
+        return indented;
     }
 
     eventLog(event: any, name: string = ''):void {
