@@ -17,13 +17,20 @@ export class UnstyledLinkComponent {
     @Input() set fromAction(action:AngularComplexAction) {
         this.children = action.content;
         this.accessibilityLabel = action.accessibilityLabel;
-        this.url = action.url;
-        this.onAction = action.onAction;
 
+        // Wire links if need be
         if (action.routerLink) {
             this.routerLink = action.routerLink;
+        } else if (action.url) {
+            this.url = action.url;
         }
 
+        // Handle subsciprion to the click event
+        this.click = new EventEmitter<MouseEvent>();
+        if (action.onAction) {
+            this.click.subscribe((event: MouseEvent) => { event.preventDefault() });
+            this.click.subscribe(action.onAction);
+        }
 
         this.plain = action.plain ? true : false;
     }
@@ -41,11 +48,7 @@ export class UnstyledLinkComponent {
      */
     @Input() url:string;
 
-    @Input() onAction = () => {
-        this.click.emit(null);
-    };
-
-    @Output() click: EventEmitter<any> = new EventEmitter();
+    @Output() click: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
     /**
      * 	Display as primary button
@@ -98,7 +101,6 @@ export class UnstyledLinkComponent {
             'Polaris-Button--plain': this.plain !== false,
             'Polaris-Button--outline': this.outline !== false,
             'Polaris-Button--iconOnly': this.iconOnly !== false,
-
         }
     }
 

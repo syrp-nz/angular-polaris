@@ -15,7 +15,8 @@
     [attr.aria-label]="accessibilityLabel"
     [ngClass]="ngClass()"
     [attr.disabled]="disabled !== false"
-    [target]="external !== false ? _blank : ''">
+    [target]="external !== false ? _blank : ''"
+    (click)="click.emit($event)">
     <ng-container *ngIf="(routerLink) else elseTpl"></ng-container>
     {{ children }}
 </a>
