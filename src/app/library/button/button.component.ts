@@ -21,10 +21,21 @@ export class ButtonComponent implements OnInit {
     @Input() set fromAction(action:AngularComplexAction) {
         this.children = action.content;
         this.accessibilityLabel = action.accessibilityLabel;
-        this.url = action.url;
-        this.onAction = action.onAction;
-        this.routerLink = action.routerLink ? action.routerLink : '';
         this.plain = action.plain ? true : false;
+
+        // Wire links if need be
+        if (action.routerLink) {
+            this.routerLink = action.routerLink;
+        } else if (action.url) {
+            this.url = action.url;
+        }
+
+        // Handle subsciprion to the click event
+        this.action = new EventEmitter<any>();
+        if (action.onAction) {
+            this.action.subscribe(action.onAction);
+        }
+
     }
 
     /**
@@ -45,11 +56,6 @@ export class ButtonComponent implements OnInit {
      * Make this button an angular router link
      */
     @Input() routerLink:string;
-
-
-    @Input() onAction = () => {
-        // this.click.emit(null);
-    };
 
     @Output() action: EventEmitter<any> = new EventEmitter();
 
