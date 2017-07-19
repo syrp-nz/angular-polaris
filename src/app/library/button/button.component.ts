@@ -9,6 +9,7 @@ import { AngularComplexAction } from '../types';
     templateUrl: 'button.component.html',
     host: {
         '[class.Polaris-ButtonGroup__Item]': 'inGroup',
+        '[class.Polaris-Button--fullWidth]': 'fullWidth !== false',
     },
     styles: [':host {display: inline-block;}']
 })
@@ -80,6 +81,8 @@ export class ButtonComponent implements OnInit {
 
     @Input() iconOnly: boolean = false;
 
+    @Input() fullWidth: boolean = false;
+
     @Input() icon: string;
 
 
@@ -96,7 +99,7 @@ export class ButtonComponent implements OnInit {
             'Polaris-Button--plain': this.plain !== false,
             'Polaris-Button--outline': this.outline !== false,
             'Polaris-Button--iconOnly': this.iconOnly !== false,
-
+            'Polaris-Button--fullWidth': this.fullWidth !== false,
         }
     }
 }
