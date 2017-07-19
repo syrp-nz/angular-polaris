@@ -39,7 +39,7 @@
     type="button"
     class="Polaris-Button {{innerClass}}"
     *ngIf="!routerLink && !url"
-    (click)="onAction()"
+    (click)="action.emit()"
     [ngClass]="ngClass()"
     [disabled]="disabled !== false"
     [attr.aria-label]="accessibilityLabel">

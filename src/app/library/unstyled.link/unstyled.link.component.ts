@@ -26,10 +26,9 @@ export class UnstyledLinkComponent {
         }
 
         // Handle subsciprion to the click event
-        this.click = new EventEmitter<MouseEvent>();
+        this.action = new EventEmitter<any>();
         if (action.onAction) {
-            this.click.subscribe((event: MouseEvent) => { event.preventDefault() });
-            this.click.subscribe(action.onAction);
+            this.action.subscribe(action.onAction);
         }
 
         this.plain = action.plain ? true : false;
@@ -48,7 +47,14 @@ export class UnstyledLinkComponent {
      */
     @Input() url:string;
 
-    @Output() click: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+    @Output() action: EventEmitter<any> = new EventEmitter<any>();
+
+    public onClick(event: MouseEvent) {
+        if (this.action.observers.length > 0) {
+            event.preventDefault();
+            this.action.emit();
+        }
+    }
 
     /**
      * 	Display as primary button

@@ -48,10 +48,10 @@ export class ButtonComponent implements OnInit {
 
 
     @Input() onAction = () => {
-        this.click.emit(null);
+        // this.click.emit(null);
     };
 
-    @Output() click: EventEmitter<any> = new EventEmitter();
+    @Output() action: EventEmitter<any> = new EventEmitter();
 
     /**
      * 	Display as primary button

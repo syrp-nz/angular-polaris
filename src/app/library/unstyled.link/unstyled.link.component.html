@@ -16,7 +16,7 @@
     [ngClass]="ngClass()"
     [attr.disabled]="disabled !== false"
     [target]="external !== false ? _blank : ''"
-    (click)="click.emit($event)">
+    (click)="onClick($event)">
     <ng-container *ngIf="(routerLink) else elseTpl"></ng-container>
     {{ children }}
 </a>
