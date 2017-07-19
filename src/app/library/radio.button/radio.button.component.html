@@ -1,0 +1,19 @@
+<plrsChoice
+    [label]="label"
+    [labelHidden]="labelHidden"
+    [id]="id"
+    [helpText]="helpText"
+    [error]="error ? error : model.dirty && (invalid | async) && (failures | async)">
+    <div class="Polaris-RadioButton">
+        <input
+            type="radio"
+            [attr.id]="id"
+            [attr.name]="name"
+            class="Polaris-RadioButton__Input" aria-invalid="false"
+            [(ngModel)]="value"
+            (focus)="focus.emit($event)"
+            (blur)="blur.emit($event)"/>
+        <div class="Polaris-RadioButton__Backdrop"></div>
+        <div class="Polaris-RadioButton__Icon"></div>
+    </div>
+</plrsChoice>

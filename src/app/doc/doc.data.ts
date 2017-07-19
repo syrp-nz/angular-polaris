@@ -39,7 +39,14 @@ export const docData: PolarisComponent[] = [
         path: 'choice/choice.component',
         status: 'dev',
         category: 'system',
-    }
+    },
+    {
+        name: 'RadioButton',
+        path: 'radio.button/radio.button.component',
+        status: 'dev',
+        docLink: 'forms/radio-button',
+        category: 'form',
+    },
 ];
 
 // export const componentList: Function[] = docData.map((meta) => meta.component);

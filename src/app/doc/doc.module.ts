@@ -20,9 +20,10 @@ const appRoutes: Routes = [
             { path: 'list', component: ListComponent },
             { path: 'badge/badge.component', component: C.BadgeComponent },
             { path: 'banner/banner.component', component: C.BannerComponent },
+            { path: 'breadcrumbs/breadcrumbs.component', component: C.BreadcrumbsComponent },
             { path: 'checkbox/checkbox.component', component: C.CheckboxComponent },
             { path: 'choice/choice.component', component: C.ChoiceComponent },
-            { path: 'breadcrumbs/breadcrumbs.component', component: C.BreadcrumbsComponent },
+            { path: 'radio.button/radio.button.component', component: C.RadioButtonComponent },
         ]
     }
 ];
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
         C.BreadcrumbsComponent,
         C.CheckboxComponent,
         C.ChoiceComponent,
+        C.RadioButtonComponent,
     ],
     exports: [ ],
     providers: [

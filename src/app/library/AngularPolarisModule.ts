@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { BadgeComponent } from './badge/badge.component';
-
 import { BannerComponent } from './banner/banner.component';
 
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
@@ -35,6 +34,8 @@ import { PageHeaderComponent } from './page/page.header.component';
 
 import { PaginationComponent } from './pagination/pagination.component';
 
+import { RadioButtonComponent } from './radio.button';
+
 import { ResourceListComponent } from './resource.list/resource.list.component';
 import { ResourceListItemComponent } from './resource.list/resource.list.item.component';
 
@@ -60,39 +61,40 @@ import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
 export * from './types';
 
 const components = [
-    BannerComponent,
     BadgeComponent,
+    BannerComponent,
     BreadcrumbsComponent,
     ButtonComponent,
     ButtonGroupComponent,
     CardComponent,
     CardSectionComponent,
+    CheckboxComponent,
     ChoiceComponent,
-    LayoutComponent,
-    SectionComponent,
-    SectionedLayoutComponent,
-    StackComponent,
-    StackItemComponent,
     HeaderComponent,
-    ResourceListComponent,
-    ResourceListItemComponent,
+    IconComponent,
     LabelComponent,
     LabelledComponent,
-    TextFieldComponent,
-    ResizerComponent,
-    TemplateOrStringComponent,
-    SelectComponent,
-    ThumbnailComponent,
     LayoutAnnotatedSectionComponent,
-    IconComponent,
-    SpinnerComponent,
-    VisuallyHiddenComponent,
-    WysiwygComponent,
+    LayoutComponent,
     PageComponent,
     PageHeaderComponent,
-    UnstyledLinkComponent,
     PaginationComponent,
-    CheckboxComponent,
+    RadioButtonComponent,
+    ResizerComponent,
+    ResourceListComponent,
+    ResourceListItemComponent,
+    SectionComponent,
+    SectionedLayoutComponent,
+    SelectComponent,
+    SpinnerComponent,
+    StackComponent,
+    StackItemComponent,
+    TemplateOrStringComponent,
+    TextFieldComponent,
+    ThumbnailComponent,
+    UnstyledLinkComponent,
+    VisuallyHiddenComponent,
+    WysiwygComponent,
 ];
 
 @NgModule({
