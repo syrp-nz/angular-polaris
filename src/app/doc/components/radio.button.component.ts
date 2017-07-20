@@ -19,7 +19,8 @@ export class RadioButtonComponent extends ComponentComponent {
     logChange: boolean = false;
     logFocus: boolean = false;
     logBlur: boolean = false;
-    value: boolean = false;
+    value: string = 'world';
+    bindedValue:any;
 
     constructor(protected service: DocService) {
         super(service);
@@ -27,15 +28,17 @@ export class RadioButtonComponent extends ComponentComponent {
 
     public get code(): string {
         const label = this.nullableAttr('label');
-        const labelHidden = this.labelHidden ? "\n    [labelHidden]=\"labelHidden\"" : "";
+        const labelHidden = this.labelHidden ? " labelHidden" : "";
         const helpText = this.nullableAttr('helpText');
         const id = this.nullableAttr('id');
+        const name = this.nullableAttr('name');
+        const value = this.nullableAttr('value');
         const change = this.eventAttr('change');
         const focus = this.eventAttr('focus');
         const blur = this.eventAttr('blur');
 
-        return `<plrsRadioButton${label}${labelHidden}${helpText}${id}
-    [(ngModel)]="model.BooleanVariable"${change}${focus}${blur}></plrsRadioButton>`;
+        return `<plrsRadioButton${label}${labelHidden}${helpText}${id}${name}${value}
+    [(ngModel)]="model.bindedValue"${change}${focus}${blur}></plrsRadioButton>`;
     }
 
 }
