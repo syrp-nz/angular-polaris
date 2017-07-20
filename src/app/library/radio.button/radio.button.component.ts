@@ -2,7 +2,7 @@ import { Component, Input, Output, OnInit, EventEmitter, forwardRef, Optional, I
 import { NgModel, DefaultValueAccessor, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, NG_ASYNC_VALIDATORS } from '@angular/forms';
 import { AngularComplexAction } from '../types';
 import { createUniqueIDFactory } from '@shopify/javascript-utilities/other';
-import { ElementBase} from '../form/element.base';
+import { ValueAccessorBase } from '../form/value.accessor';
 
 
 const getUniqueID = createUniqueIDFactory('RadioButton');
@@ -19,16 +19,7 @@ const getUniqueID = createUniqueIDFactory('RadioButton');
     host: {
     }
 })
-export class RadioButtonComponent extends ElementBase<boolean>  implements OnInit {
-
-    ngOnInit() { }
-
-    constructor(
-        @Optional() @Inject(NG_VALIDATORS) validators: Array<any>,
-        @Optional() @Inject(NG_ASYNC_VALIDATORS) asyncValidators: Array<any>,
-    ) {
-        super(validators, asyncValidators);
-    }
+export class RadioButtonComponent extends ValueAccessorBase<any> {
 
     /**
      * Additional hint text to display.
@@ -37,7 +28,6 @@ export class RadioButtonComponent extends ElementBase<boolean>  implements OnIni
     @Input() label: string;
     @Input() labelHidden: boolean;
     @Input() disabled: boolean = false;
-    @Input() checked: boolean = false;
     @Input() error: Error;
     @Input() name: string;
 
@@ -47,12 +37,19 @@ export class RadioButtonComponent extends ElementBase<boolean>  implements OnIni
     get id(): string {return this._id;}
     set id(value:string) { this._id = value ? value : this._id;}
 
-    @Input() value: boolean;
+    @Input('value') radioVal: string;
 
     @Output() focus: EventEmitter<FocusEvent> = new EventEmitter<FocusEvent>();
     @Output() blur: EventEmitter<FocusEvent> = new EventEmitter<FocusEvent>();
 
+    get checked(): boolean {
+        return this.value == this.radioVal;
+    }
 
-    @ViewChild(NgModel) model: NgModel;
+    triggerUpdate(event: Event) {
+        if (event.srcElement['checked']) {
+            this.value = this.radioVal;
+        }
+    }
 
 }
