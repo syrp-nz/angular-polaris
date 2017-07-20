@@ -15,14 +15,9 @@ export class ChoiceListComponent extends ComponentComponent {
     titleHidden:boolean = false;
     id:string = '';
     logChange: boolean = false;
-    logFocus: boolean = false;
-    logBlur: boolean = false;
     name: string = 'choice';
     bindedValue: any[] = [];
     allowMultiple: boolean = false;
-    normalCheckbox: any;
-
-    hello: string = 'two';
 
     choices: Types.Option[] = [
         'Choice One',
@@ -31,12 +26,6 @@ export class ChoiceListComponent extends ComponentComponent {
         {label: 'Choice Four', value:{hello:'world'}},
     ];
 
-    one: boolean = false;
-    two: boolean = true;
-    three: boolean = false;
-    printVal() {
-        console.dir(this.hello)
-    }
 
     constructor(protected service: DocService) {
         super(service);
@@ -44,14 +33,19 @@ export class ChoiceListComponent extends ComponentComponent {
 
     public get code(): string {
         const title = this.nullableAttr('title');
-        const titleHidden = this.titleHidden ? "\n    [titleHidden]=\"titleHidden\"" : "";
+        const titleHidden = this.booleanAttr("titleHidden");
         const id = this.nullableAttr('id');
-        const change = this.eventAttr('change');
-        const focus = this.eventAttr('focus');
-        const blur = this.eventAttr('blur');
+        const name = this.nullableAttr('name');
+        const allowMultiple = this.booleanAttr('allowMultiple');
 
-        return `<plrsRadioButton${title}${titleHidden}${id}
-    [(ngModel)]="model.BooleanVariable"${change}${focus}${blur}></plrsRadioButton>`;
+        const choices = this.jsonAttr('[choices]', this.choices);
+
+
+        const change = this.eventAttr('change');
+        const bind = this.attr('[(ngModel)]','bindedValue');
+
+
+        return `<plrsChoiceList${title}${titleHidden}${id}${name}${choices}${allowMultiple}${bind}${change}></plrsChoiceList>`;
     }
 
 }
