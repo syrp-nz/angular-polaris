@@ -8,6 +8,7 @@ import { AngularPolarisModule } from '../library';
 import { DocComponent } from './doc.component';
 import { DocService } from './doc.service';
 import { ListComponent } from './utilities/list.component';
+import { ComponentDocWrapperComponent } from './utilities/component.doc.wrapper.component';
 import { CodeCardComponent } from './utilities/code.card.component';
 import { MetaComponent } from './utilities/meta.component';
 
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
     ],
     declarations: [
         DocComponent,
+        ComponentDocWrapperComponent,
         ListComponent,
         CodeCardComponent,
         MetaComponent,

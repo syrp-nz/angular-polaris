@@ -1,0 +1,18 @@
+<plrsLayout>
+    <plrsSection primary>
+        <plrsCard sectioned title="Preview">
+            <ng-content select=".preview"></ng-content>
+        </plrsCard>
+        <codeCard *ngIf="bindedValue" [code]="bindedValueJson" title="Binded value"></codeCard>
+        <codeCard [code]="code" title="Angular Code"></codeCard>
+    </plrsSection>
+    <plrsSection secondary>
+        <plrsCard sectioned title="Options">
+            <ng-content select=".option"></ng-content>
+        </plrsCard>
+        <plrsCard *ngIf="showLog !== false" sectioned title="Events console log" [primaryFooterAction]="clearConsole">
+            <ng-content select=".logs"></ng-content>
+        </plrsCard>
+        <metaComponent [component]="component"></metaComponent>
+    </plrsSection>
+</plrsLayout>
