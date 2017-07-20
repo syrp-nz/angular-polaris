@@ -41,6 +41,13 @@ export const docData: PolarisComponent[] = [
         category: 'system',
     },
     {
+        name: 'ChoiceList',
+        path: 'choice.list/choice.list.component',
+        status: 'dev',
+        docLink: 'forms/choice-list',
+        category: 'form',
+    },
+    {
         name: 'RadioButton',
         path: 'radio.button/radio.button.component',
         status: 'dev',

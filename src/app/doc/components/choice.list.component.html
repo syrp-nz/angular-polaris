@@ -1,40 +1,38 @@
 <plrsLayout>
     <plrsSection primary>
         <plrsCard sectioned title="Preview">
-            <plrsRadioButton
-                [label]="label"
-                [labelHidden]="labelHidden"
+            <plrsChoiceList
+                [title]="title"
+                [titleHidden]="titleHidden"
                 [id]="id ? id : false"
-                [name]="name ? name : false"
-                [value]="value"
-                [helpText]="helpText"
+                [(ngModel)]="bindedValue"
+                [name]="name"
+                [choices]="choices"
+                [allowMultiple]="allowMultiple"
+
                 (change)="logChange && eventLog($event, 'change')"
                 (focus)="logFocus && eventLog($event, 'focus')"
                 (blur)="logBlur && eventLog($event, 'blur')"
-                [(ngModel)]="bindedValue"
-                ></plrsRadioButton>
+                ></plrsChoiceList>
         </plrsCard>
         <plrsCard sectioned title="Binded value">
             {{ jsonEncode(bindedValue) }}
         </plrsCard>
         <codeCard [code]="code"></codeCard>
-        <metaComponent [component]="component"></metaComponent>
     </plrsSection>
     <plrsSection secondary>
         <plrsCard sectioned title="Options">
-            <plrsTextField label="Label" [(ngModel)]="label"></plrsTextField>
-            <plrsCheckbox label="Label Hidden" [(ngModel)]="labelHidden"></plrsCheckbox>
+            <plrsTextField label="Title" [(ngModel)]="title"></plrsTextField>
+            <plrsCheckbox label="Title Hidden" [(ngModel)]="titleHidden"></plrsCheckbox>
             <plrsTextField label="Id" [(ngModel)]="id"></plrsTextField>
-            <plrsTextField label="Name" [(ngModel)]="name" helpText="Multiple RadioButton can be grouped together if they share the same name"></plrsTextField>
-            <plrsTextField label="Value" [(ngModel)]="value" helpText="If you bind a variable to the Radio Button, this value will be assigned to the that variable if the Radio Button is checked."></plrsTextField>
-            <plrsTextField label="Help Text" [(ngModel)]="helpText"></plrsTextField>
+            <plrsTextField label="Name" [(ngModel)]="name"></plrsTextField>
+            <plrsCheckbox label="Allow Multiple" [(ngModel)]="allowMultiple"></plrsCheckbox>
         </plrsCard>
-
         <plrsCard sectioned title="Events console log" [primaryFooterAction]="clearConsole">
             <plrsCheckbox label="change" [(ngModel)]="logChange"></plrsCheckbox>
             <plrsCheckbox label="focus" [(ngModel)]="logFocus"></plrsCheckbox>
             <plrsCheckbox label="blur" [(ngModel)]="logBlur"></plrsCheckbox>
         </plrsCard>
-
+        <metaComponent [component]="component"></metaComponent>
     </plrsSection>
 </plrsLayout>

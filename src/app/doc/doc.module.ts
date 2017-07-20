@@ -23,6 +23,7 @@ const appRoutes: Routes = [
             { path: 'breadcrumbs/breadcrumbs.component', component: C.BreadcrumbsComponent },
             { path: 'checkbox/checkbox.component', component: C.CheckboxComponent },
             { path: 'choice/choice.component', component: C.ChoiceComponent },
+            { path: 'choice.list/choice.list.component', component: C.ChoiceListComponent },
             { path: 'radio.button/radio.button.component', component: C.RadioButtonComponent },
         ]
     }
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
         C.BreadcrumbsComponent,
         C.CheckboxComponent,
         C.ChoiceComponent,
+        C.ChoiceListComponent,
         C.RadioButtonComponent,
     ],
     exports: [ ],

@@ -17,6 +17,7 @@ import { CardSectionComponent } from './card/card.section.component';
 
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ChoiceComponent } from './choice/choice.component';
+import { ChoiceListComponent } from './choice.list/choice.list.component';
 
 import { HeaderComponent } from './card/header.component';
 
@@ -70,6 +71,7 @@ const components = [
     CardSectionComponent,
     CheckboxComponent,
     ChoiceComponent,
+    ChoiceListComponent,
     HeaderComponent,
     IconComponent,
     LabelComponent,

@@ -1,0 +1,18 @@
+<legend class="Polaris-ChoiceList__Title">{{ title }}</legend>
+<ul class="Polaris-ChoiceList__Choices">
+    <li *ngFor="let choice of choices">
+        <plrsRadioButton
+            *ngIf="allowMultiple === false"
+            [name]="name"
+            [value]="[choiceValue(choice)]"
+            [label]="choiceLabel(choice)"
+            [(ngModel)]="value"></plrsRadioButton>
+        <plrsCheckbox
+            *ngIf="allowMultiple !== false"
+            [name]="name+'[]'"
+            [value]="isChecked(choice)"
+            [label]="choiceLabel(choice)"
+            [checked]="isChecked(choice)"
+            (change)="checkboxChange(choice, $event)"></plrsCheckbox>
+    </li>
+</ul>

@@ -36,3 +36,11 @@ export interface AngularComplexAction extends ComplexAction {
     routerLink?: string;
     plain?: boolean;
 }
+
+/**
+ * Used to relay options to the Select Componenent and the Choice List Componenent
+ */
+export type Option = string | {
+  value: any,
+  label: string,
+};

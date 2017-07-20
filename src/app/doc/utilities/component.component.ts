@@ -59,4 +59,7 @@ export abstract class ComponentComponent {
 
     clearConsole = {content: 'Clear console', onAction: console.clear};
 
+    jsonEncode(value) {
+        return JSON.stringify(value);
+    }
 }
