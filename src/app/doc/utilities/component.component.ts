@@ -1,4 +1,3 @@
-import { Component, OnInit} from '@angular/core';
 import { DocService } from '../doc.service';
 import { PolarisComponent } from '../doc.data';
 
@@ -26,13 +25,34 @@ export abstract class ComponentComponent {
     }
 
     /**
-     * Build an optional attribute for the Angular code preview
+     * Build an optional event wire for the Angular code preview
      * @param  {string} attr [description]
      * @return {string}      [description]
      */
     protected eventAttr(eventName: string): string {
         const eventUC = this.capitalizeFirstLetter(eventName);
         return this['log' + eventUC] ? this.indent(`(${eventName})="on${eventUC}($event)"`) : '';
+    }
+
+    /**
+     * Build an optional valueless attribute for the Angular code preview
+     */
+    protected booleanAttr(attr: string): string {
+        return this[attr] ? this.indent(attr) : '';
+    }
+
+    /**
+     * Build an optional valueless attribute for the Angular code preview
+     */
+    protected jsonAttr(attr: string, obj: any): string {
+        return this.attr(attr, JSON.stringify(obj, null, "    ").replace(/\"/g, '\''));
+    }
+
+    /**
+     * Build an attribute for the Angular code proview
+     */
+    protected attr(attr: string, value:string): string {
+        return this.indent(`${attr}="${value}"`);
     }
 
     private capitalizeFirstLetter(string) {
@@ -55,11 +75,5 @@ export abstract class ComponentComponent {
         }
 
         console.dir(event);
-    }
-
-    clearConsole = {content: 'Clear console', onAction: console.clear};
-
-    jsonEncode(value) {
-        return JSON.stringify(value);
     }
 }
