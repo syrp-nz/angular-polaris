@@ -1,0 +1,49 @@
+<componentDocWrapper [code]="code" [component]="component" showLog>
+    <plrsButton class="preview"
+        [destructive]="destructive"
+        [disabled]="disabled"
+        [disclosure]="disclosure"
+        [external]="external"
+        [fullWidth]="fullWidth"
+        [icon]="icon"
+        [outline]="outline"
+        [plain]="plain"
+        [primary]="primary"
+        [routerLink]="routerLink"
+        [size]="size"
+        [submit]="submit"
+        [url]="url"
+        (change)="logAction && eventLog($event, 'action')"
+        (focus)="logFocus && eventLog($event, 'focus')"
+        (blur)="logBlur && eventLog($event, 'blur')"
+        >{{ content }}</plrsButton>
+
+    <div class="option">
+        <plrsTextField label="Content" [(ngModel)]="content"></plrsTextField>
+        <plrsTextField label="Url" [(ngModel)]="url" placeholder="e.g.: https://example.com"></plrsTextField>
+        <plrsCheckbox label="external" [(ngModel)]="external"></plrsCheckbox>
+        <plrsTextField label="Router Link" [(ngModel)]="routerLink" placeholder="e.g.: /doc/list"></plrsTextField>
+        <plrsTextField label="Icon" [(ngModel)]="icon" placeholder="e.g.: alert"></plrsTextField>
+        <plrsTextField label="Accessibility label" [(ngModel)]="accessibilityLabel" placeholder="Aria label for screen readers"></plrsTextField>
+        <plrsSelect label="Size" [(ngModel)]="size" [options]="['','default','slim','large']"></plrsSelect>
+        <plrsCheckbox label="disabled" [(ngModel)]="disabled"></plrsCheckbox>
+        <plrsCheckbox label="submit" [(ngModel)]="submit"></plrsCheckbox>
+    </div>
+
+    <plrsCard sectioned title="Styles" class="extra">
+        <p>These options will affect the appearance of the button.</p>
+        <plrsCheckbox label="primary" [(ngModel)]="primary" ></plrsCheckbox>
+        <plrsCheckbox label="destructive" [(ngModel)]="destructive"></plrsCheckbox>
+        <plrsCheckbox label="outline" [(ngModel)]="outline"></plrsCheckbox>
+        <plrsCheckbox label="fullWidth" [(ngModel)]="fullWidth"></plrsCheckbox>
+        <plrsCheckbox label="disclosure" [(ngModel)]="disclosure"></plrsCheckbox>
+        <plrsCheckbox label="plain" [(ngModel)]="plain"></plrsCheckbox>
+    </plrsCard>
+
+
+    <div class="logs">
+        <plrsCheckbox label="action" [(ngModel)]="logAction"></plrsCheckbox>
+        <plrsCheckbox label="focus" [(ngModel)]="logFocus"></plrsCheckbox>
+        <plrsCheckbox label="blur" [(ngModel)]="logBlur"></plrsCheckbox>
+    </div>
+</componentDocWrapper>

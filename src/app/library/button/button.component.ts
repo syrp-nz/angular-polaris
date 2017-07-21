@@ -74,6 +74,12 @@ export class ButtonComponent implements OnInit {
      */
     @Input() disabled: boolean = false;
 
+
+    @Input() submit: boolean = false;
+
+
+    @Input() disclosure: boolean = false;
+
     /**
      * Display as disabled button.
      */
@@ -91,6 +97,8 @@ export class ButtonComponent implements OnInit {
 
     @Input() icon: string;
 
+    @Input() size: "" | "default" | "slim" | "large" = "";
+
 
     /**
      * Apply classes to the inner button.
@@ -106,6 +114,17 @@ export class ButtonComponent implements OnInit {
             'Polaris-Button--outline': this.outline !== false,
             'Polaris-Button--iconOnly': this.iconOnly !== false,
             'Polaris-Button--fullWidth': this.fullWidth !== false,
+            'Polaris-Button--sizeLarge': this.size == 'large',
+            'Polaris-Button--sizeSlim': this.size == 'slim',
+        }
+    }
+
+    onclick(event: MouseEvent) {
+        console.dir(event);
+        console.dir(event.preventDefault());
+        if (this.action.observers.length > 0) {
+            event.preventDefault();
+            this.action.emit();
         }
     }
 }

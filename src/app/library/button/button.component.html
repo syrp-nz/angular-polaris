@@ -14,6 +14,9 @@
                 {{ children }}
             </ng-container>
         </span>
+        <span class="Polaris-Button__Icon" *ngIf="disclosure !== false">
+            <plrsIcon source="caretDown"></plrsIcon>
+        </span>
     </span>
 </a>
 <a *ngIf="url"
@@ -23,7 +26,7 @@
     [attr.aria-label]="accessibilityLabel"
     [ngClass]="ngClass()"
     [attr.disabled]="disabled !== false"
-    [target]="external !== false ? _blank : ''">
+    [target]="external !== false ? '_blank' : ''">
     <span class="Polaris-Button__Content">
         <span class="Polaris-Button__Icon" *ngIf="icon">
             <plrsIcon [source]="icon"></plrsIcon>
@@ -33,13 +36,16 @@
                 {{ children }}
             </ng-container>
         </span>
+        <span class="Polaris-Button__Icon" *ngIf="disclosure !== false">
+            <plrsIcon source="caretDown"></plrsIcon>
+        </span>
     </span>
 </a>
 <button
-    type="button"
+    [type]="submit === false ? 'button' : 'submit'"
     class="Polaris-Button {{innerClass}}"
     *ngIf="!routerLink && !url"
-    (click)="action.emit()"
+    (click)="onclick($event)"
     [ngClass]="ngClass()"
     [disabled]="disabled !== false"
     [attr.aria-label]="accessibilityLabel">
@@ -51,6 +57,9 @@
             <ng-container *ngIf="children else elseTpl">
                 {{ children }}
             </ng-container>
+        </span>
+        <span class="Polaris-Button__Icon" *ngIf="disclosure !== false">
+            <plrsIcon source="caretDown"></plrsIcon>
         </span>
     </span>
 </button>

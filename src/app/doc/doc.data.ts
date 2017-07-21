@@ -28,6 +28,13 @@ export const docData: PolarisComponent[] = [
         category: 'system',
     },
     {
+        name: 'Button',
+        path: 'button/button.component',
+        status: 'dev',
+        docLink: 'actions/button',
+        category: 'action',
+    },
+    {
         name: 'Checkbox',
         path: 'checkbox/checkbox.component',
         status: 'dev',
