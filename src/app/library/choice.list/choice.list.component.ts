@@ -4,7 +4,6 @@ import { AngularComplexAction } from '../types';
 import { createUniqueIDFactory } from '@shopify/javascript-utilities/other';
 import { ValueAccessorBase } from '../form/value.accessor';
 import { Option } from '../types';
-import { Set } from 'typescript-collections';
 
 const getUniqueID = createUniqueIDFactory('ChoiceList');
 
