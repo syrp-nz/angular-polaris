@@ -1,23 +1,16 @@
-<plrsLayout>
-    <plrsSection primary>
-        <plrsCard sectioned title="Preview">
-            <plrsChoice [label]="label" [id]="id" [helpText]="helpText" [error]="error">
-                <input type="checkbox" [attr.id]="id" />
-            </plrsChoice>
-        </plrsCard>
+<componentDocWrapper [bindedValue]="bindedValue" [code]="code" [component]="component">
+    <plrsChoice [label]="label" [id]="id" [helpText]="helpText" [error]="error" class="preview">
+        <input type="checkbox" [attr.id]="id" />
+    </plrsChoice>
 
-        <codeCard [code]="code"></codeCard>
-    </plrsSection>
-    <plrsSection secondary>
-        <plrsCard sectioned title="Options">
-            <plrsTextField label="Label" [(ngModel)]="label"></plrsTextField>
-            <plrsTextField label="Id" [(ngModel)]="id"></plrsTextField>
-            <plrsTextField label="Help Text" [(ngModel)]="helpText"></plrsTextField>
-            <plrsTextField label="Error" [(ngModel)]="error"></plrsTextField>
-        </plrsCard>
-        <plrsCard sectioned title="Note">
-            <p><code>Choice</code> is a system component used by the <a routerLink="../../checkbox/checkobox.component">checkbox component</a> and <a routerLink="../../choice.list/choice.list.component">choice list component</a>. It's not meant to be used directly.</p>
-        </plrsCard>
-        <metaComponent [component]="component"></metaComponent>
-    </plrsSection>
-</plrsLayout>
+    <div class="option">
+        <plrsTextField label="Label" [(ngModel)]="label"></plrsTextField>
+        <plrsTextField label="Id" [(ngModel)]="id"></plrsTextField>
+        <plrsTextField label="Help Text" [(ngModel)]="helpText"></plrsTextField>
+        <plrsTextField label="Error" [(ngModel)]="error"></plrsTextField>
+    </div>
+
+    <plrsCard sectioned title="Note" class="extra">
+        <p><code>Choice</code> is a system component used by the <a routerLink="../../checkbox/checkobox.component">checkbox component</a> and <a routerLink="../../choice.list/choice.list.component">choice list component</a>. It's not meant to be used directly.</p>
+    </plrsCard>
+</componentDocWrapper>

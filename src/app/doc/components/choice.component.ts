@@ -20,15 +20,14 @@ export class ChoiceComponent extends ComponentComponent {
     }
 
     public get code(): string {
-        const status = this.nullableAttr('status');
-        const progress = this.nullableAttr('progress');
+        const label = this.nullableAttr('label');
+        const id = this.nullableAttr('id');
+        const helpText = this.nullableAttr('helpText');
+        const error = this.nullableAttr('error');
 
-return `<plrsChoice
-    [label]="label"
-    [id]="id"
-    [helpText]="helpText"
-    [error]="error">
-    <input type="checkbox" [attr.id]="id" />
+
+return `<plrsChoice${label}${id}${helpText}${error}>
+    <input type="checkbox" attr.id="${this.id}" />
 </plrsChoice>`;
     }
 

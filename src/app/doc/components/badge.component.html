@@ -1,17 +1,8 @@
-<plrsLayout>
-    <plrsSection primary>
-        <plrsCard sectioned title="Preview">
-            <plrsBadge [status]="status" [progress]="progress">{{ content }}</plrsBadge>
-        </plrsCard>
-        <codeCard [code]="code"></codeCard>
-    </plrsSection>
-    <plrsSection secondary>
-        <plrsCard sectioned title="Options">
+<componentDocWrapper [code]="code" [component]="component">
+    <plrsBadge class="preview" [status]="status" [progress]="progress">{{ content }}</plrsBadge>
+    <div class="option">
             <plrsTextField label="Content" [(ngModel)]="content"></plrsTextField>
             <plrsSelect label="Status" [(ngModel)]="status" [options]="statusOptions"></plrsSelect>
             <plrsSelect label="Progress" [(ngModel)]="progress" [options]="progressOptions"></plrsSelect>
-        </plrsCard>
-        <metaComponent [component]="component"></metaComponent>
-
-    </plrsSection>
-</plrsLayout>
+    </div>
+</componentDocWrapper>

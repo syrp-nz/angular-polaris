@@ -1,21 +1,13 @@
-<plrsLayout>
-    <plrsSection primary>
-        <plrsCard sectioned title="Preview">
-            <plrsBreadcrumbs [breadcrumbs]="breadcrumbs"></plrsBreadcrumbs>
-        </plrsCard>
+<componentDocWrapper [code]="code" [component]="component">
+    <plrsBreadcrumbs [breadcrumbs]="breadcrumbs" class="preview"></plrsBreadcrumbs>
 
-        <codeCard [code]="code"></codeCard>
-    </plrsSection>
-    <plrsSection secondary>
-        <plrsCard sectioned title="Options">
-            <plrsButton [disabled]="breadcrumbs.length < 2" fullWidth  (action)="popAction()">Pop crumb</plrsButton>
-            <plrsButton fullWidth (action)="pushRouterLink()">Push router link crumb</plrsButton>
-            <plrsButton fullWidth (action)="pushUrl()">Push normal link crumb</plrsButton>
-            <plrsButton fullWidth (action)="pushLogAction()">Push log action crumb</plrsButton>
-        </plrsCard>
-        <plrsCard sectioned title="Note">
-            <p><code>Breadcrumbs</code> is a system component used by the <a routerLink="../../page/page.component">page component</a>. It's not meant to be used directly.</p>
-        </plrsCard>
-        <metaComponent [component]="component"></metaComponent>
-    </plrsSection>
-</plrsLayout>
+    <div class="option">
+        <plrsButton [disabled]="breadcrumbs.length < 2" fullWidth  (action)="popAction()">Pop crumb</plrsButton>
+        <plrsButton fullWidth (action)="pushRouterLink()">Push router link crumb</plrsButton>
+        <plrsButton fullWidth (action)="pushUrl()">Push normal link crumb</plrsButton>
+        <plrsButton fullWidth (action)="pushLogAction()">Push log action crumb</plrsButton>
+    </div>
+    <plrsCard sectioned title="Note" class="extra">
+        <p><code>Breadcrumbs</code> is a system component used by the <a routerLink="../../page/page.component">page component</a>. It's not meant to be used directly.</p>
+    </plrsCard>
+</componentDocWrapper>

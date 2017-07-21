@@ -1,24 +1,15 @@
-<plrsLayout>
-    <plrsSection primary>
-        <plrsCard sectioned title="Preview">
-            <plrsBanner #banner [title]="title" [icon]="icon" [status]="status">{{ content }}</plrsBanner>
-        </plrsCard>
+<componentDocWrapper [code]="code" [component]="component" showLog>
+    <plrsBanner class="preview" #banner [title]="title" [icon]="icon" [status]="status">{{ content }}</plrsBanner>
 
-        <codeCard [code]="code"></codeCard>
-    </plrsSection>
-    <plrsSection secondary>
-        <plrsCard sectioned title="Options">
-            <plrsTextField label="Content" [(ngModel)]="content"></plrsTextField>
-            <plrsTextField label="Title" [(ngModel)]="title"></plrsTextField>
-            <plrsTextField label="Icon" [(ngModel)]="icon"></plrsTextField>
-            <plrsSelect label="Status" [(ngModel)]="status" [options]="statusOptions"></plrsSelect>
-        </plrsCard>
-        <plrsCard sectioned title="Events console log" [primaryFooterAction]="clearConsole">
-            <plrsCheckbox label="dismiss" [(ngModel)]="logDismiss" (change)="dismissUpdate()"></plrsCheckbox>
-            <plrsCheckbox label="primary action" [(ngModel)]="logPrimaryAction" (change)="primaryActionUpdate()"></plrsCheckbox>
-            <plrsCheckbox label="secondary action" [(ngModel)]="logSecondaryAction" (change)="secondaryActionUpdate()"></plrsCheckbox>
-        </plrsCard>
-        <metaComponent [component]="component"></metaComponent>
-
-    </plrsSection>
-</plrsLayout>
+    <div class="options">
+        <plrsTextField label="Content" [(ngModel)]="content"></plrsTextField>
+        <plrsTextField label="Title" [(ngModel)]="title"></plrsTextField>
+        <plrsTextField label="Icon" [(ngModel)]="icon"></plrsTextField>
+        <plrsSelect label="Status" [(ngModel)]="status" [options]="statusOptions"></plrsSelect>
+    </div>
+    <div class="logs">
+        <plrsCheckbox label="dismiss" [(ngModel)]="logDismiss" (change)="dismissUpdate()"></plrsCheckbox>
+        <plrsCheckbox label="primary action" [(ngModel)]="logPrimaryAction" (change)="primaryActionUpdate()"></plrsCheckbox>
+        <plrsCheckbox label="secondary action" [(ngModel)]="logSecondaryAction" (change)="secondaryActionUpdate()"></plrsCheckbox>
+    </div>
+</componentDocWrapper>

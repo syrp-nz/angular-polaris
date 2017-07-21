@@ -13,6 +13,7 @@
         <plrsCard *ngIf="showLog !== false" sectioned title="Events console log" [primaryFooterAction]="clearConsole">
             <ng-content select=".logs"></ng-content>
         </plrsCard>
+        <ng-content select=".extra"></ng-content>
         <metaComponent [component]="component"></metaComponent>
     </plrsSection>
 </plrsLayout>

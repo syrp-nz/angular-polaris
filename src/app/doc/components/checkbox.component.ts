@@ -19,6 +19,7 @@ export class CheckboxComponent extends ComponentComponent {
     logChange: boolean = false;
     logFocus: boolean = false;
     logBlur: boolean = false;
+    bindedValue: boolean = false;
 
     constructor(protected service: DocService) {
         super(service);
