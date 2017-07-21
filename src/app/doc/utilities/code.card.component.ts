@@ -23,7 +23,6 @@ export class CodeCardComponent {
     };
 
     public set code(value: string) {
-        console.dir(value);
         this._code = value;
         this.highlight();
     }
