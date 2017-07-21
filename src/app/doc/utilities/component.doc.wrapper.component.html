@@ -3,8 +3,8 @@
         <plrsCard sectioned title="Preview">
             <ng-content select=".preview"></ng-content>
         </plrsCard>
-        <codeCard *ngIf="bindedValue" [code]="bindedValueJson" title="Binded value"></codeCard>
-        <codeCard [code]="code" title="Angular Code"></codeCard>
+        <codeCard *ngIf="bindedValue" [code]="bindedValueJson" title="Binded value" language="javascript"></codeCard>
+        <codeCard [code]="code" title="Angular template code" language="html"></codeCard>
     </plrsSection>
     <plrsSection secondary>
         <plrsCard sectioned title="Options">

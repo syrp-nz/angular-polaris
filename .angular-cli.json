@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "plrs",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "prism-coy.css"
       ],
       "scripts": [
       ],
