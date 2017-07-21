@@ -1,7 +1,7 @@
 <componentDocWrapper [code]="code" [component]="component" showLog>
     <plrsBanner class="preview" #banner [title]="title" [icon]="icon" [status]="status">{{ content }}</plrsBanner>
 
-    <div class="options">
+    <div class="option">
         <plrsTextField label="Content" [(ngModel)]="content"></plrsTextField>
         <plrsTextField label="Title" [(ngModel)]="title"></plrsTextField>
         <plrsTextField label="Icon" [(ngModel)]="icon"></plrsTextField>
